@@ -1,4 +1,8 @@
 /*
+ * member: 陳柏嵩 沈士閔 林俊翰 顧又榮
+ * 
+ * Date: 11/26
+ * 
  * This code is used for parse the data from 
  * http://data.gov.tw/opendata/Details?sno=345000000G-00014 and
  * http://data.gov.tw/opendata/Details?sno=355000000I-00005.
@@ -49,11 +53,13 @@ public class dataParser {
 		String riverData = readFileToString("../river.txt");
 		JSONArray farmArray = new JSONArray(farmData); 
 		JSONArray riverArray = new JSONArray(riverData);
+		//ready to parse the farm and river open data
 		parsefarm(farmArray);
-//		parseriver(riverArray);
+		parseriver(riverArray);
 	}
 	
 	//extract information from the farm.txt
+	//and save these information
 	public static void parsefarm(JSONArray farmarray) throws JSONException{
 		List<farminfo> list = new ArrayList<farminfo>();
 		String temp = "";
@@ -81,6 +87,7 @@ public class dataParser {
 	
 	
 	//extract information from river.txt
+	//and save these information
 	//itemname : pH/Suspended Solid/Dissolved Oxygen/River Pollution Index/NH3-N/Chemical Oxygen Demand/Chloride
 	//itemvalue : there are serveral data without value and some data show "<0.01" ,"<0.1"
 	
@@ -121,6 +128,4 @@ public class dataParser {
 		reader.close();
 		return  fileData.toString();	
 	}
-	
 }
-
