@@ -1,4 +1,5 @@
 /*
+ * Large and Open Source Projects  Group 5
  * member: 陳柏嵩 沈士閔 林俊翰 顧又榮
  * 
  * Date: 11/26
@@ -25,6 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+//import json api being used
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,10 +56,15 @@ public class dataParser {
 	
 	public static void main(String[] args) throws IOException, JSONException {
 		// TODO Auto-generated method stub
-		String farmData = readFileToString("../farm.txt");	
+		// read the open data file from http://data.gov.tw/opendata/Details?sno=345000000G-00014 in JSON
+		String farmData = readFileToString("../farm.txt");
+		// read the open data file from http://data.gov.tw/opendata/Details?sno=355000000I-00005 in JSON
 		String riverData = readFileToString("../river.txt");
+		
+		//convert the string to JSONArray by JSONArray constructer
 		JSONArray farmArray = new JSONArray(farmData); 
 		JSONArray riverArray = new JSONArray(riverData);
+		
 		//ready to parse the farm and river open data
 		parsefarm(farmArray);
 		parseriver(riverArray);
