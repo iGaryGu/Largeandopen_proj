@@ -8,8 +8,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,7 +21,6 @@ public class dataParser {
 	 * @throws IOException 
 	 * @throws JSONException 
 	 */
-	
 	
 	public static void main(String[] args) throws IOException, JSONException {
 		// TODO Auto-generated method stub
@@ -43,7 +40,6 @@ public class dataParser {
 			String farm_name = object.get("Farm_name").toString();
 			String city = object.get("city").toString();
 			String area = object.get("area").toString();
-			
 			System.out.println(i +" "+farm_name+"+"+city+"+"+area+"|");
 			
 		}
