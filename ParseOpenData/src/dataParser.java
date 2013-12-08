@@ -19,6 +19,11 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -57,18 +62,33 @@ public class dataParser {
 	public static void main(String[] args) throws IOException, JSONException {
 		// TODO Auto-generated method stub
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=345000000G-00014 in JSON
-		String farmData = readFileToString("../farm.txt");
+		String jsonfarm = readJsonFromUrl("http://data.coa.gov.tw/od/data/api/eir07/?$format=json");
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=355000000I-00005 in JSON
-		String riverData = readFileToString("../river.txt");
+		String jsonriver = readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?format=json");
 		
 		//convert the string to JSONArray by JSONArray constructer
-		JSONArray farmArray = new JSONArray(farmData); 
-		JSONArray riverArray = new JSONArray(riverData);
+		JSONArray farmArray = new JSONArray(jsonfarm); 
+		JSONArray riverArray = new JSONArray(jsonriver);
 		
 		//ready to parse the farm and river open data
 		parsefarm(farmArray);
 		parseriver(riverArray);
 	}
+	
+	public static String readJsonFromUrl(String url) throws IOException, JSONException {
+	    InputStream is = new URL(url).openStream();
+	    try {
+	      BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+	      StringBuilder sb = new StringBuilder();
+		    int cp;
+		    while ((cp = rd.read()) != -1) {
+		      sb.append((char) cp);
+		    }
+		    return sb.toString();
+	    } finally {
+	      is.close();
+	    }
+	  }
 	
 	//extract information from the farm.txt
 	//and save these information
