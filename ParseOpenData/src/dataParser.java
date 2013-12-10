@@ -21,23 +21,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
-//import json api being used
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+//import json api being used
 
 //used to save farm information
 class farminfo{
+	String number;
 	String name;
 	String city;
 	String area;
@@ -66,7 +63,7 @@ public class dataParser {
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=355000000I-00005 in JSON
 		String jsonriver = readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?format=json");
 		
-		//convert the string to JSONArray by JSONArray constructer
+		//convert the string to JSONArray by JSONArray constructor
 		JSONArray farmArray = new JSONArray(jsonfarm); 
 		JSONArray riverArray = new JSONArray(jsonriver);
 		
@@ -98,11 +95,13 @@ public class dataParser {
 		for(int i = 0 ; i < farmarray.length();i++){
 			farminfo farminfo = new farminfo();
 			JSONObject object = farmarray.getJSONObject(i);
+			String farm_number = object.get("Number").toString();
 			String farm_name = object.get("Farm_name").toString();
 			String city = object.get("city").toString();
 			String area = object.get("area").toString();
-			System.out.println(i +" "+farm_name+"+"+city+"+"+area+"|");
+			//System.out.println(i +" "+farm_name+"+"+city+"+"+area+"|");
 			
+			farminfo.number = farm_number;
 			farminfo.name = object.get("Farm_name").toString();
 			farminfo.city = object.get("city").toString();
 			farminfo.area = object.get("area").toString();
@@ -118,7 +117,8 @@ public class dataParser {
 		Iterator<farminfo> iter = list.iterator();
 		while(iter.hasNext()){
 			farminfo info = iter.next();
-			System.out.println("name = "+info.name + "city = " + info.city + "area = "+info.area );
+			parseUrl parse = new parseUrl(info.number);
+			System.out.println("name = "+info.name + "city = " + info.city + "area = "+info.area + parse.getAddr());
 		}
 	}
 	
@@ -147,7 +147,7 @@ public class dataParser {
 		Iterator<riverinfo> iter = list.iterator();
 		while(iter.hasNext()){
 			riverinfo info = iter.next();
-			System.out.println("name = "+info.basin + "longitude = " + info.longitude + "latitude = "+info.latitude + "itemname =" + info.itemname+"itemvalue = " + info.itemvalue+"itemunit = " + info.itemunit);
+			//System.out.println("name = "+info.basin + "longitude = " + info.longitude + "latitude = "+info.latitude + "itemname =" + info.itemname+"itemvalue = " + info.itemvalue+"itemunit = " + info.itemunit);
 		}
 	}
 	
