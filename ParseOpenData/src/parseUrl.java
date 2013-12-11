@@ -7,13 +7,7 @@ import java.net.URLConnection;
 
 public class parseUrl {
 
-	private String id;
-	
-	parseUrl(String farmId) {
-		id = farmId;
-	}
-	
-	public String getAddr(){
+	public static String getAddr(String id){
 		String url_from = "http://www.i-organic.org.tw/farm/" + id;
 		String html_content;
 		String addr = "";

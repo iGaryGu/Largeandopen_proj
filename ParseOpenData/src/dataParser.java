@@ -38,6 +38,7 @@ class farminfo{
 	String name;
 	String city;
 	String area;
+	String address;
 }
 //used to save river information
 class riverinfo{
@@ -108,6 +109,12 @@ public class dataParser {
 			farminfo.name = object.get("Farm_name").toString();
 			farminfo.city = object.get("city").toString();
 			farminfo.area = object.get("area").toString();
+			//get address by parse the web page
+			dataParsertest test = new dataParsertest(farm_number);
+			test.testrparseUrl();
+			farminfo.address = parseUrl.getAddr(farm_number);
+			
+			System.out.println(farminfo.name+" address: "+farminfo.address);
 			//skip the same farm information
 			if(!temp.equals(farminfo.name)){
 				list.add(farminfo);
@@ -120,10 +127,7 @@ public class dataParser {
 		Iterator<farminfo> iter = list.iterator();
 		while(iter.hasNext()){
 			farminfo info = iter.next();
-			dataParsertest test = new dataParsertest(info.number);
-			test.testrparseUrl();
-			parseUrl parse = new parseUrl(info.number);
-			System.out.println("name = "+info.name + "city = " + info.city + "area = "+info.area + parse.getAddr());
+			System.out.println("name = "+info.name + "city = " + info.city + "area = "+info.area + info.address);
 		}
 	}
 	
