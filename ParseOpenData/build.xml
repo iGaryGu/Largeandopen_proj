@@ -41,7 +41,7 @@
 	
 	<target name="clean-build" depends="clean,jar"/>	
 	
-	<target name="main" depends="clean,jar"/>
+	<target name="main" depends="clean,run"/>
 	
 	<target name="run-tests" depends="compile" description="run your test">
 		<junit printsummary="yes" haltonfailure="no" showoutput="no" >

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="garygu-Aspire-4830TG" name="dataparsertest" tests="1" time="0.437" timestamp="2013-12-11T19:09:16">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.management.compiler" value="HotSpot Tiered Compilers" />
+    <property name="ant.file.type.ParseOpenData" value="file" />
+    <property name="os.name" value="Linux" />
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/resources.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/rt.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/jsse.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/jce.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/charsets.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/netx.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/plugin.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/rhino.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/jfr.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/classes" />
+    <property name="sun.desktop" value="gnome" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="/usr/share/ant" />
+    <property name="jar.dir" value="build/jar" />
+    <property name="java.runtime.version" value="1.7.0_25-b30" />
+    <property name="user.name" value="garygu" />
+    <property name="build.dir" value="build" />
+    <property name="user.language" value="zh" />
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/i386" />
+    <property name="ant.project.default-target" value="main" />
+    <property name="ant.project.name" value="ParseOpenData" />
+    <property name="java.version" value="1.7.0_25" />
+    <property name="user.timezone" value="" />
+    <property name="sun.arch.data.model" value="32" />
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/endorsed" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="classes.dir" value="build/classes" />
+    <property name="java.class.version" value="51.0" />
+    <property name="user.country" value="TW" />
+    <property name="java.home" value="/usr/lib/jvm/java-7-openjdk-i386/jre" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="main-class" value="dataParser" />
+    <property name="ant.file" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/build.xml" />
+    <property name="os.version" value="3.8.0-34-generic" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="23.7-b01" />
+    <property name="report.dir" value="report" />
+    <property name="ant.library.dir" value="/usr/share/ant/lib" />
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
+    <property name="user.home" value="/home/garygu" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="java.library.path" value="/usr/java/packages/lib/i386:/usr/lib/jni:/lib:/usr/lib" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataparsertest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataparsertest.xml crashfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junitvmwatcher7599730282008038430.properties propsfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junit1399391420789270146.properties" />
+    <property name="java.class.path" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/bin:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.8.2 compiled on May 18 2012" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.type" value="file" />
+    <property name="java.vm.specification.version" value="1.7" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="java.io.tmpdir" value="/tmp" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="raw.dir" value="report/raw" />
+    <property name="os.arch" value="i386" />
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext:/usr/java/packages/lib/ext" />
+    <property name="user.dir" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="java.vm.name" value="OpenJDK Server VM" />
+    <property name="ant.file.ParseOpenData" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/build.xml" />
+    <property name="basedir" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData" />
+    <property name="ant.java.version" value="1.7" />
+    <property name="ant.core.lib" value="/usr/share/ant/lib/ant.jar" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="java.specification.version" value="1.7" />
+    <property name="src.dir" value="src" />
+    <property name="ant.project.invoked-targets" value="test" />
+    <property name="lib-dir" value="lib" />
+  </properties>
+  <testcase classname="dataparsertest" name="testGetAddr" time="0.376" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

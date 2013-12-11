@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="1" failures="0" hostname="damon-Aspire-5742G" id="0" name="dataParsertest" package="" tests="1" time="0.1" timestamp="2013-12-11T18:31:28">
+  <testsuite errors="0" failures="0" hostname="garygu-Aspire-4830TG" id="0" name="dataparsertest" package="" tests="1" time="0.437" timestamp="2013-12-11T19:09:16">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -24,11 +24,11 @@
 
           <property name="java.runtime.version" value="1.7.0_25-b30" />
 
-          <property name="user.name" value="damon" />
+          <property name="user.name" value="garygu" />
 
           <property name="build.dir" value="build" />
 
-          <property name="user.language" value="en" />
+          <property name="user.language" value="zh" />
 
           <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/i386" />
 
@@ -58,7 +58,7 @@
 
           <property name="java.class.version" value="51.0" />
 
-          <property name="user.country" value="US" />
+          <property name="user.country" value="TW" />
 
           <property name="java.home" value="/usr/lib/jvm/java-7-openjdk-i386/jre" />
 
@@ -66,9 +66,9 @@
 
           <property name="main-class" value="dataParser" />
 
-          <property name="ant.file" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/build.xml" />
+          <property name="ant.file" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/build.xml" />
 
-          <property name="os.version" value="3.8.0-33-generic" />
+          <property name="os.version" value="3.8.0-34-generic" />
 
           <property name="path.separator" value=":" />
 
@@ -84,7 +84,7 @@
 
           <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
 
-          <property name="user.home" value="/home/damon" />
+          <property name="user.home" value="/home/garygu" />
 
           <property name="java.specification.vendor" value="Oracle Corporation" />
 
@@ -96,9 +96,9 @@
 
           <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParsertest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParsertest.xml crashfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junitvmwatcher2919370352544568152.properties propsfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junit7213691561026919101.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataparsertest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataparsertest.xml crashfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junitvmwatcher7599730282008038430.properties propsfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junit1399391420789270146.properties" />
 
-          <property name="java.class.path" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/bin:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
+          <property name="java.class.path" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/bin:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
 
           <property name="ant.version" value="Apache Ant(TM) version 1.8.2 compiled on May 18 2012" />
 
@@ -124,15 +124,15 @@
 
           <property name="java.ext.dirs" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext:/usr/java/packages/lib/ext" />
 
-          <property name="user.dir" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData" />
+          <property name="user.dir" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData" />
 
           <property name="line.separator" value="&#xa;" />
 
           <property name="java.vm.name" value="OpenJDK Server VM" />
 
-          <property name="ant.file.ParseOpenData" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/build.xml" />
+          <property name="ant.file.ParseOpenData" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/build.xml" />
 
-          <property name="basedir" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData" />
+          <property name="basedir" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData" />
 
           <property name="ant.java.version" value="1.7" />
 
@@ -150,12 +150,7 @@
 
       </properties>
 
-      <testcase classname="dataParsertest" name="initializationError" time="0.013">
-          <error message="Test class should have exactly one public constructor" type="java.lang.Exception">java.lang.Exception: Test class should have exactly one public constructor
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
-</error>
-
-      </testcase>
+      <testcase classname="dataparsertest" name="testGetAddr" time="0.376" />
 
       <system-out />
 

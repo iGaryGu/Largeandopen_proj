@@ -110,8 +110,7 @@ public class dataParser {
 			farminfo.city = object.get("city").toString();
 			farminfo.area = object.get("area").toString();
 			//get address by parse the web page
-			dataParsertest test = new dataParsertest(farm_number);
-			test.testrparseUrl();
+
 			farminfo.address = parseUrl.getAddr(farm_number);
 			
 			System.out.println(farminfo.name+" address: "+farminfo.address);
