@@ -18,10 +18,16 @@ import org.junit.Test;
 
 
 public class dataParsertest {
+	private String id;
 	private dataParser dataParse;
+//	private parseUrl parseurl;
+	dataParsertest(String farmid) {
+		id = farmid;
+	}
 	@Before
 	public void setUp(){
 		dataParse = new dataParser();
+//		parseurl = new parseUrl(id);
 	}
 	
 	@After
@@ -34,6 +40,19 @@ public class dataParsertest {
 		String str = "hello handsome guy!\n";
 		String temp = dataParse.readFileToString("../test.txt");
 		assertEquals(str,temp);
+	}
+	
+	public void testrparseUrl(){
+		boolean isfind = false;
+		parseUrl parseurl = new parseUrl(id);
+		
+		if(parseurl.getAddr()!=null){
+			isfind = true;
+		}
+		else{
+			isfind = false;
+		}
+		assertEquals(true,isfind);
 	}
 
 }

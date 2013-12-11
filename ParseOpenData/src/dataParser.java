@@ -58,8 +58,11 @@ public class dataParser {
 	
 	public static void main(String[] args) throws IOException, JSONException {
 		// TODO Auto-generated method stub
+		
+
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=345000000G-00014 in JSON
 		String jsonfarm = readJsonFromUrl("http://data.coa.gov.tw/od/data/api/eir07/?$format=json");
+		
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=355000000I-00005 in JSON
 		String jsonriver = readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?format=json");
 		
@@ -117,6 +120,8 @@ public class dataParser {
 		Iterator<farminfo> iter = list.iterator();
 		while(iter.hasNext()){
 			farminfo info = iter.next();
+			dataParsertest test = new dataParsertest(info.number);
+			test.testrparseUrl();
 			parseUrl parse = new parseUrl(info.number);
 			System.out.println("name = "+info.name + "city = " + info.city + "area = "+info.area + parse.getAddr());
 		}
