@@ -31,7 +31,7 @@
 			</jar>
 	</target>
 	
-	<target name="run" depends="jar">
+	<target name="run" depends="jar,test">
 		<java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
 		<classpath>
 			<path refid="classpath"/>
