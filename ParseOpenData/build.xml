@@ -49,7 +49,7 @@
 				<path refid="classpath"/>
 				<path location="${jar-dir}/${ant.project.name}.jar"/>
 			</classpath>
-			<batchtest fork="yes" todir="${reports}/raw/">
+			<batchtest fork="yes" todir="${report.dir}/raw">
 				<formatter type="xml"/>
 				<fileset dir="${src.dir}">
 					<include name="**/*test*.java"/>
