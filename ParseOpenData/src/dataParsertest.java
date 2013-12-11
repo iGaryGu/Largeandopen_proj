@@ -27,7 +27,6 @@ public class dataParsertest {
 	@Before
 	public void setUp(){
 		dataParse = new dataParser();
-//		parseurl = new parseUrl(id);
 	}
 	
 	@After
@@ -44,9 +43,8 @@ public class dataParsertest {
 	
 	public void testrparseUrl(){
 		boolean isfind = false;
-		parseUrl parseurl = new parseUrl(id);
 		
-		if(parseurl.getAddr()!=null){
+		if(parseUrl.getAddr(id)!=null){
 			isfind = true;
 		}
 		else{
