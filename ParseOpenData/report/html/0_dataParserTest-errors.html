@@ -1,13 +1,13 @@
 <html xmlns:lxslt="http://xml.apache.org/xslt" xmlns:stringutils="xalan://org.apache.tools.ant.util.StringUtils">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Unit Test Results: dataparsertest</title>
+<title>Unit Test Results: dataParserTest</title>
 <link rel="stylesheet" type="text/css" title="Style" href="stylesheet.css">
 <script type="text/javascript" language="JavaScript">
         var TestCases = new Array();
         var cur;
         
-    cur = TestCases['.dataparsertest'] = new Array();
+    cur = TestCases['.dataParserTest'] = new Array();
     
         cur['ant.core.lib'] = '/usr/share/ant/lib/ant.jar';
     
@@ -27,7 +27,7 @@
     
         cur['ant.project.default-target'] = 'main';
     
-        cur['ant.project.invoked-targets'] = 'test';
+        cur['ant.project.invoked-targets'] = 'main';
     
         cur['ant.project.name'] = 'ParseOpenData';
     
@@ -134,7 +134,7 @@
     
         cur['sun.io.unicode.encoding'] = 'UnicodeLittle';
     
-        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataparsertest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataparsertest.xml crashfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junitvmwatcher9208126528465071334.properties propsfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junit2953343438323226278.properties';
+        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParserTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParserTest.xml crashfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junitvmwatcher2552012652075688287.properties propsfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junit5473813672934229468.properties';
     
         cur['sun.java.launcher'] = 'SUN_STANDARD';
     
@@ -193,26 +193,29 @@
 </tr>
 </table>
 <hr size="1">
-<h3>Class dataparsertest</h3>
+<h3>Class dataParserTest</h3>
 <table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
 <tr valign="top">
 <th width="80%">Name</th><th>Tests</th><th>Errors</th><th>Failures</th><th nowrap>Time(s)</th><th nowrap>Time Stamp</th><th>Host</th>
 </tr>
-<tr valign="top" class="Pass">
-<td><a title="Display all tests" href="0_dataparsertest.html">dataparsertest</a></td><td><a title="Display all tests" href="0_dataparsertest.html">1</a></td><td>0</td><td>0</td><td>0.338</td><td>2013-12-12T01:37:41</td><td>garygu-Aspire-4830TG</td>
+<tr valign="top" class="Error">
+<td><a title="Display all tests" href="0_dataParserTest.html">dataParserTest</a></td><td><a title="Display all tests" href="0_dataParserTest.html">1</a></td><td><a title="Display only errors" href="0_dataParserTest-errors.html">1</a></td><td>0</td><td>0.000</td><td>2013-12-12T01:41:29</td><td>garygu-Aspire-4830TG</td>
 </tr>
 </table>
-<h2>Tests</h2>
+<h2>Errors</h2>
 <table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
 <tr valign="top">
 <th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
 </tr>
-<tr valign="top" class="TableRowColor">
-<td><a name="testGetAddr"></a>testGetAddr</td><td>Success</td><td></td><td>0.216</td>
+<tr class="Error">
+<td colspan="4">dataParserTest<br>
+<br>
+<code>java.lang.ClassNotFoundException: dataParserTest<br>	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)<br>	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)<br>	at java.security.AccessController.doPrivileged(Native Method)<br>	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)<br>	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)<br>	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)<br>	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)<br>	at java.lang.Class.forName0(Native Method)<br>	at java.lang.Class.forName(Class.java:190)<br>
+</code></td>
 </tr>
 </table>
 <div class="Properties">
-<a href="javascript:displayProperties('.dataparsertest');">
+<a href="javascript:displayProperties('.dataParserTest');">
                     Properties &raquo;
                 </a>
 </div>

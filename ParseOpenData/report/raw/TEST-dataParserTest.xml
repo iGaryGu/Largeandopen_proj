@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="garygu-Aspire-4830TG" name="dataparsertest" tests="1" time="0.338" timestamp="2013-12-12T01:37:41">
+<testsuite errors="0" failures="0" hostname="garygu-Aspire-4830TG" name="dataParserTest" tests="1" time="0.477" timestamp="2013-12-12T01:45:57">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -48,8 +48,8 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataparsertest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataparsertest.xml crashfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junitvmwatcher9208126528465071334.properties propsfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junit2953343438323226278.properties" />
-    <property name="java.class.path" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/bin:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParserTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParserTest.xml crashfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junitvmwatcher565735774610250441.properties propsfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junit880947300912794295.properties" />
+    <property name="java.class.path" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/build/classes:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.8.2 compiled on May 18 2012" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="ant.file.type" value="file" />
@@ -75,7 +75,7 @@
     <property name="ant.project.invoked-targets" value="test" />
     <property name="lib-dir" value="lib" />
   </properties>
-  <testcase classname="dataparsertest" name="testGetAddr" time="0.216" />
+  <testcase classname="dataParserTest" name="testGetAddr" time="0.412" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
