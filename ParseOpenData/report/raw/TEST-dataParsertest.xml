@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="damon-Aspire-5742G" name="dataParserTest" tests="1" time="0.332" timestamp="2013-12-12T02:37:20">
+<testsuite errors="1" failures="0" hostname="damon-Aspire-5742G" name="dataParsertest" tests="1" time="0.099" timestamp="2013-12-12T01:28:12">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -32,7 +32,7 @@
     <property name="user.country" value="US" />
     <property name="java.home" value="/usr/lib/jvm/java-7-openjdk-i386/jre" />
     <property name="java.vm.info" value="mixed mode" />
-    <property name="main-class" value="DataParser" />
+    <property name="main-class" value="dataParser" />
     <property name="ant.file" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/build.xml" />
     <property name="os.version" value="3.8.0-33-generic" />
     <property name="path.separator" value=":" />
@@ -48,8 +48,8 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParserTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParserTest.xml crashfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junitvmwatcher4408734050773136001.properties propsfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junit3959240673481807176.properties" />
-    <property name="java.class.path" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/build/classes:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParsertest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParsertest.xml crashfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junitvmwatcher5786004304395633115.properties propsfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junit3136992373944554455.properties" />
+    <property name="java.class.path" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/bin:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.8.2 compiled on May 18 2012" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="ant.file.type" value="file" />
@@ -72,10 +72,14 @@
     <property name="file.encoding" value="UTF-8" />
     <property name="java.specification.version" value="1.7" />
     <property name="src.dir" value="src" />
-    <property name="ant.project.invoked-targets" value="main" />
+    <property name="ant.project.invoked-targets" value="test" />
     <property name="lib-dir" value="lib" />
   </properties>
-  <testcase classname="dataParserTest" name="testGetAddr" time="0.219" />
+  <testcase classname="dataParsertest" name="initializationError" time="0.009">
+    <error message="Test class should have exactly one public constructor" type="java.lang.Exception">java.lang.Exception: Test class should have exactly one public constructor
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+</error>
+  </testcase>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

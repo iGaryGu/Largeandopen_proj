@@ -1,13 +1,13 @@
 <html xmlns:lxslt="http://xml.apache.org/xslt" xmlns:stringutils="xalan://org.apache.tools.ant.util.StringUtils">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Unit Test Results: dataParserTest</title>
+<title>Unit Test Results: dataParsertest</title>
 <link rel="stylesheet" type="text/css" title="Style" href="stylesheet.css">
 <script type="text/javascript" language="JavaScript">
         var TestCases = new Array();
         var cur;
         
-    cur = TestCases['.dataParserTest'] = new Array();
+    cur = TestCases['.dataParsertest'] = new Array();
     
         cur['ant.core.lib'] = '/usr/share/ant/lib/ant.jar';
     
@@ -27,7 +27,7 @@
     
         cur['ant.project.default-target'] = 'main';
     
-        cur['ant.project.invoked-targets'] = 'main';
+        cur['ant.project.invoked-targets'] = 'test';
     
         cur['ant.project.name'] = 'ParseOpenData';
     
@@ -53,7 +53,7 @@
     
         cur['java.awt.printerjob'] = 'sun.print.PSPrinterJob';
     
-        cur['java.class.path'] = '/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/build/classes:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar';
+        cur['java.class.path'] = '/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/bin:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar';
     
         cur['java.class.version'] = '51.0';
     
@@ -104,7 +104,7 @@
         cur['line.separator'] = '
 ';
     
-        cur['main-class'] = 'DataParser';
+        cur['main-class'] = 'dataParser';
     
         cur['os.arch'] = 'i386';
     
@@ -134,7 +134,7 @@
     
         cur['sun.io.unicode.encoding'] = 'UnicodeLittle';
     
-        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParserTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParserTest.xml crashfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junitvmwatcher4408734050773136001.properties propsfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junit3959240673481807176.properties';
+        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParsertest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParsertest.xml crashfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junitvmwatcher5786004304395633115.properties propsfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junit3136992373944554455.properties';
     
         cur['sun.java.launcher'] = 'SUN_STANDARD';
     
@@ -193,13 +193,13 @@
 </tr>
 </table>
 <hr size="1">
-<h3>Class dataParserTest</h3>
+<h3>Class dataParsertest</h3>
 <table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
 <tr valign="top">
 <th width="80%">Name</th><th>Tests</th><th>Errors</th><th>Failures</th><th nowrap>Time(s)</th><th nowrap>Time Stamp</th><th>Host</th>
 </tr>
-<tr valign="top" class="Pass">
-<td><a title="Display all tests" href="0_dataParserTest.html">dataParserTest</a></td><td><a title="Display all tests" href="0_dataParserTest.html">1</a></td><td>0</td><td>0</td><td>0.332</td><td>2013-12-12T02:37:20</td><td>damon-Aspire-5742G</td>
+<tr valign="top" class="Error">
+<td><a title="Display all tests" href="1_dataParsertest.html">dataParsertest</a></td><td><a title="Display all tests" href="1_dataParsertest.html">1</a></td><td><a title="Display only errors" href="1_dataParsertest-errors.html">1</a></td><td>0</td><td>0.099</td><td>2013-12-12T01:28:12</td><td>damon-Aspire-5742G</td>
 </tr>
 </table>
 <h2>Tests</h2>
@@ -207,12 +207,15 @@
 <tr valign="top">
 <th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
 </tr>
-<tr valign="top" class="TableRowColor">
-<td><a name="testGetAddr"></a>testGetAddr</td><td>Success</td><td></td><td>0.219</td>
+<tr valign="top" class="Error">
+<td><a name="initializationError"></a>initializationError</td><td>Error</td><td>Test class should have exactly one public constructor<br>
+<br>
+<code>java.lang.Exception: Test class should have exactly one public constructor<br>	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)<br>
+</code></td><td>0.009</td>
 </tr>
 </table>
 <div class="Properties">
-<a href="javascript:displayProperties('.dataParserTest');">
+<a href="javascript:displayProperties('.dataParsertest');">
                     Properties &raquo;
                 </a>
 </div>
