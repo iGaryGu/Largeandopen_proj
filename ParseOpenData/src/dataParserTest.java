@@ -22,8 +22,7 @@ public class dataParserTest {
 	@Test
 	public void testGetAddr() {
 		String str = "711臺南市歸仁區七甲村丁厝街52巷63弄25號";
-		String temp = parseurl.getAddr("COAF0001");
-			
+		String temp = parseurl.getAddr("COAF0001");		
 		assertEquals(str,temp);
 	}
 

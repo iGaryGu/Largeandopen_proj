@@ -59,10 +59,9 @@ public class DataParser {
 	
 	public static void main(String[] args) throws IOException, JSONException {
 		// TODO Auto-generated method stub
-		
-
+				
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=345000000G-00014 in JSON
-		String jsonfarm = readJsonFromUrl("http://data.coa.gov.tw/od/data/api/eir07/?$format=json");
+		String jsonfarm = readJsonFromUrl("http://data.coa.gov.tw:8080/od/data/api/eir07/?$format=json");
 		
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=355000000I-00005 in JSON
 		String jsonriver = readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?format=json");
@@ -117,6 +116,7 @@ public class DataParser {
 			if(!temp.equals(farminfo.name)){
 				System.out.println(farminfo.name+" address: "+farminfo.address);
 				list.add(farminfo);
+				//DBConnect.insertFarmIntoDB(farminfo.name, 1, 1, farminfo.address);
 			}
 			temp = farminfo.name;
 		}
