@@ -97,7 +97,7 @@ public class DBConnect {
 			//STEP 3: Open a connection
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			//STEP 4: Execute a query
-			String sql = "insert into farm (farm_name, farm_lat, farm_lng, farm_address) value (?,?,?,?)";
+			String sql = "insert into pollution (farm_id, pollution) value (?,?)";
 			
 			insertStmt = conn.prepareStatement(sql);
 			insertStmt.setInt(1, f_id);
