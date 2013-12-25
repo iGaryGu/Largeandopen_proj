@@ -184,7 +184,7 @@ public class DataParser {
 				String lng = it.next().toString();
 				double level = map.get(lng);
 				String[] lngtemp = lng.split(",");
-				DBConnect.insertRiverIntoDB(riverid++, basin, Double.parseDouble(lngtemp[0]), Double.parseDouble(lngtemp[1]), level);
+//				DBConnect.insertRiverIntoDB(riverid++, basin, Double.parseDouble(lngtemp[0]), Double.parseDouble(lngtemp[1]), level);
 			}
 		}
 	
