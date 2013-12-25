@@ -2,29 +2,29 @@ import java.sql.*;
 
 public class DBConnect {
 	// JDBC driver name and database URL
-	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	static final String DB_URL = "jdbc:mysql://localhost/5_large_open_source";
+	static final String JDBC_DRIVER = "org.postgresql.Driver";  
+	static final String DB_URL = "jdbc:postgresql://210.61.10.89/Team5";
 
 	//  Database credentials
-	static final String USER = "root";
-	static final String PASS = "supreme";
+	static final String USER = "Team5";
+	static final String PASS = "2013postgres";
 
 	public static void insertFarmIntoDB(String name, double lat, double lng, String address) {
 		Connection conn = null;
 		PreparedStatement insertStmt = null;
 		try{
 			//STEP 2: Register JDBC driver
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(JDBC_DRIVER);
 			//STEP 3: Open a connection
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			//STEP 4: Execute a query
-			String sql = "insert into farm (farm_name, farm_lat, farm_lng, farm_address) value (?,?,?,?)";
+			String sql = "insert into farm (farm_name, farm_lat, farm_lng, farm_address) values (?,?,?,?)";
 			
 			insertStmt = conn.prepareStatement(sql);
-			insertStmt.setNString(1, name);
+			insertStmt.setString(1, name);
 			insertStmt.setDouble(2, lat);
 			insertStmt.setDouble(3, lng);
-			insertStmt.setNString(4, address);
+			insertStmt.setString(4, address);
 			insertStmt.executeUpdate();
 			
 		}catch(SQLException se){
@@ -54,11 +54,11 @@ public class DBConnect {
 		PreparedStatement insertStmt = null;
 		try{
 			//STEP 2: Register JDBC driver
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(JDBC_DRIVER);
 			//STEP 3: Open a connection
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			//STEP 4: Execute a query
-			String sql = "insert into river (river_lat, river_lng, river_pollution) value (?,?,?)";
+			String sql = "insert into river (river_lat, river_lng, river_pollution) values (?,?,?)";
 			
 			insertStmt = conn.prepareStatement(sql);
 			insertStmt.setDouble(1, lat);
@@ -93,11 +93,11 @@ public class DBConnect {
 		PreparedStatement insertStmt = null;
 		try{
 			//STEP 2: Register JDBC driver
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(JDBC_DRIVER);
 			//STEP 3: Open a connection
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			//STEP 4: Execute a query
-			String sql = "insert into pollution (farm_id, pollution) value (?,?)";
+			String sql = "insert into pollution (farm_id, pollution) values (?,?)";
 			
 			insertStmt = conn.prepareStatement(sql);
 			insertStmt.setInt(1, f_id);
