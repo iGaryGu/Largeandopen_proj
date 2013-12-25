@@ -49,7 +49,7 @@ public class DBConnect {
 		}//end try
 	}//end function
 	
-	public static void insertRiverIntoDB(double lat, double lng, double pollution) {
+	public static void insertRiverIntoDB(int r_id, String basin, double lat, double lng, double pollution) {
 		Connection conn = null;
 		PreparedStatement insertStmt = null;
 		try{
@@ -58,12 +58,14 @@ public class DBConnect {
 			//STEP 3: Open a connection
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			//STEP 4: Execute a query
-			String sql = "insert into river (river_lat, river_lng, river_pollution) values (?,?,?)";
+			String sql = "insert into river (river_id, river_basin, river_lat, river_lng, river_pollution) values (?,?,?,?,?)";
 			
 			insertStmt = conn.prepareStatement(sql);
-			insertStmt.setDouble(1, lat);
-			insertStmt.setDouble(2, lng);
-			insertStmt.setDouble(3, pollution);
+			insertStmt.setInt(1, r_id);
+			insertStmt.setString(2, basin);
+			insertStmt.setDouble(3, lat);
+			insertStmt.setDouble(4, lng);
+			insertStmt.setDouble(5, pollution);
 			insertStmt.executeUpdate();
 			
 		}catch(SQLException se){
