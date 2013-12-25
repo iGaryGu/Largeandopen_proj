@@ -24,8 +24,11 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,6 +59,7 @@ public class DataParser {
 	 * @throws IOException 
 	 * @throws JSONException 
 	 */
+	public static int riverid = 0;
 	
 	public static void main(String[] args) throws IOException, JSONException {
 		// TODO Auto-generated method stub
@@ -132,32 +136,57 @@ public class DataParser {
 	
 	
 	//extract information from river.txt
-	//and save these information
-	//itemname : pH/Suspended Solid/Dissolved Oxygen/River Pollution Index/NH3-N/Chemical Oxygen Demand/Chloride
-	//itemvalue : there are serveral data without value and some data show "<0.01" ,"<0.1"
-	
-	public static void parseriver(JSONArray riverarray) throws JSONException{
-		List<riverinfo>list = new ArrayList<riverinfo>();
-		for(int i = 0 ; i < riverarray.length();i++){
-			riverinfo riverinfo = new riverinfo();
-			JSONObject object = riverarray.getJSONObject(i);
-			riverinfo.basin = object.get("Basin").toString();
-			riverinfo.longitude = object.get("TWD97Lon").toString();
-			riverinfo.latitude = object.get("TWD97Lat").toString();
-			riverinfo.itemname = object.get("ItemEngName").toString();
-			riverinfo.itemvalue = object.get("ItemValue").toString();
-			riverinfo.itemunit =  object.get("ItemUnit").toString();
-			list.add(riverinfo);
+		//and save these information
+		//itemname : pH/Suspended Solid/Dissolved Oxygen/River Pollution Index/NH3-N/Chemical Oxygen Demand/Chloride
+		//itemvalue : there are serveral data without value and some data show "<0.01" ,"<0.1"
+		
+		public static void parseriver(JSONArray riverarray) throws JSONException{
+			List<riverinfo>list = new ArrayList<riverinfo>();
+			String rivertemp="";
+			for(int i = 0 ; i < riverarray.length();i++){
+				riverinfo riverinfo = new riverinfo();
+				JSONObject object = riverarray.getJSONObject(i);
+				riverinfo.basin = object.get("Basin").toString();
+				riverinfo.longitude = object.get("TWD97Lon").toString();
+				riverinfo.latitude = object.get("TWD97Lat").toString();
+				riverinfo.itemname = object.get("ItemEngName").toString();
+				riverinfo.itemvalue = object.get("ItemValue").toString();
+				riverinfo.itemunit =  object.get("ItemUnit").toString();
+				if(rivertemp.equals(riverinfo.basin)){
+					list.add(riverinfo);
+				}
+				else{
+					riverPollution(list);
+					rivertemp = riverinfo.basin;
+					list.clear();
+				}
+			}
+			riverPollution(list);
 		}
 		
-		//get tne river information
-		//and use iterator design pattern
-		Iterator<riverinfo> iter = list.iterator();
-		while(iter.hasNext()){
-			riverinfo info = iter.next();
-			//System.out.println("name = "+info.basin + "longitude = " + info.longitude + "latitude = "+info.latitude + "itemname =" + info.itemname+"itemvalue = " + info.itemvalue+"itemunit = " + info.itemunit);
+		//get the river pollution level and insert to river table
+		public static void riverPollution(List<riverinfo>list){
+			Map<String,Double>map = new HashMap<String,Double>();
+			Iterator<riverinfo>iter = list.iterator();
+			String lnglat = "";
+			String basin = null;
+			while(iter.hasNext()){
+				riverinfo info = iter.next();
+				basin = info.basin;
+				lnglat = info.longitude+","+info.latitude;
+				if(info.itemname.equals("River Pollution Index")){
+					map.put(lnglat,Double.parseDouble(info.itemvalue));
+				}
+			}
+			Set<String> lnglattemp = map.keySet();
+			Iterator it = lnglattemp.iterator();
+			while(it.hasNext()){
+				String lng = it.next().toString();
+				double level = map.get(lng);
+				String[] lngtemp = lng.split(",");
+				DBConnect.insertRiverIntoDB(riverid++, basin, Double.parseDouble(lngtemp[0]), Double.parseDouble(lngtemp[1]), level);
+			}
 		}
-	}
 	
 	//read the file and convert it to string
 	public static String readFileToString(String filePath) throws IOException{
