@@ -1,3 +1,7 @@
+/*
+ * Purpose: Connect to database and insert data into database
+ * Usage: call compared function and give value of the column that want to insert as parameter
+ */
 import java.sql.*;
 
 public class DBConnect {
