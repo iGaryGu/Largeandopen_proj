@@ -185,7 +185,7 @@ public class DataParser {
 				String lng = it.next().toString();
 				double level = map.get(lng);
 				String[] lngtemp = lng.split(",");
-				DBConnect.insertRiverIntoDB(Double.parseDouble(lngtemp[0]), Double.parseDouble(lngtemp[1]), level);
+				DBConnect.insertRiverIntoDB(Double.parseDouble(lngtemp[1]), Double.parseDouble(lngtemp[0]), level);
 			}
 		}
 		
@@ -204,13 +204,14 @@ public class DataParser {
 			Set<Integer> lat = farm.keySet();
 			Set<String> latlng = river.keySet();
 			Iterator itr = lat.iterator();
-			Iterator riveritr = latlng.iterator();
+			
 			while(itr.hasNext()){
 				int id = (int) itr.next();
 				String latlng_id = farm.get(id);
 				String[] lalg = latlng_id.split(",");
 				double lattmp = Double.parseDouble(lalg[0]);
 				double lngtmp = Double.parseDouble(lalg[1]);
+				Iterator riveritr = latlng.iterator();
 				while(riveritr.hasNext()){
 					String latlngtemp = riveritr.next().toString();
 					double pollution_value  = river.get(latlngtemp);
@@ -220,16 +221,17 @@ public class DataParser {
 					
 					double distance = DistanceCalculator.getDistance(lattmp, lngtmp, riverlat, riverlng);
 					System.out.println("farm_lattmp="+lattmp+"farm_lngtmp="+lngtmp+"riverlat="+riverlat+"riverlng="+riverlng+"distance"+distance+"pollution_value="+pollution_value);
-					if(distance<5){
+					if(distance<2000){
 						weight+=pollution_value*10;
 					}
-					else if(distance>5 && distance<100){
+					else if(distance>2000 && distance<10000){
 						weight+=pollution_value*5;
 					}
 					else{
 						weight+=0;
 					}
 				}
+//				System.out.println("weight="+weight);
 				DBConnect.insertPollutionIntoDB(id, weight);
 				weight = 0;
 			}
