@@ -23,6 +23,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -61,7 +62,7 @@ public class DataParser {
 	 */
 	public static int riverid = 0;
 	
-	public static void main(String[] args) throws IOException, JSONException {
+	public static void main(String[] args) throws IOException, JSONException, ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 				
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=345000000G-00014 in JSON
@@ -75,8 +76,11 @@ public class DataParser {
 		JSONArray riverArray = new JSONArray(jsonriver);
 		
 		//ready to parse the farm and river open data
-		parsefarm(farmArray);
-		parseriver(riverArray);
+//		parsefarm(farmArray);
+//		parseriver(riverArray);
+		
+		//integrate two open data to insert to pollution table
+//		farmPollution();
 	}
 	
 	public static String readJsonFromUrl(String url) throws IOException, JSONException {
@@ -103,9 +107,6 @@ public class DataParser {
 			farminfo farminfo = new farminfo();
 			JSONObject object = farmarray.getJSONObject(i);
 			String farm_number = object.get("Number").toString();
-			String farm_name = object.get("Farm_name").toString();
-			String city = object.get("city").toString();
-			String area = object.get("area").toString();
 			//System.out.println(i +" "+farm_name+"+"+city+"+"+area+"|");
 			
 			farminfo.number = farm_number;
@@ -120,7 +121,7 @@ public class DataParser {
 			if(!temp.equals(farminfo.name)){
 				System.out.println(farminfo.name+" address: "+farminfo.address);
 				list.add(farminfo);
-				//DBConnect.insertFarmIntoDB(farminfo.name, 1, 1, farminfo.address);
+				DBConnect.insertFarmIntoDB(farm_number,farminfo.name, 1, 1, farminfo.address);
 			}
 			temp = farminfo.name;
 		}
@@ -184,8 +185,55 @@ public class DataParser {
 				String lng = it.next().toString();
 				double level = map.get(lng);
 				String[] lngtemp = lng.split(",");
-//				DBConnect.insertRiverIntoDB(riverid++, basin, Double.parseDouble(lngtemp[0]), Double.parseDouble(lngtemp[1]), level);
+				DBConnect.insertRiverIntoDB(Double.parseDouble(lngtemp[0]), Double.parseDouble(lngtemp[1]), level);
 			}
+		}
+		
+		
+		//integrate the two open data to insert to the pollutione table
+		public static void farmPollution() throws ClassNotFoundException, SQLException{
+			SelectTable.selectFarm();
+			SelectTable.selectRiver();
+			
+			//pollution weight
+			double weight = 0; 
+			
+			Map<Integer,String> farm = SelectTable.farmmap;
+			Map<String,Double> river = SelectTable.rivermap;
+			
+			Set<Integer> lat = farm.keySet();
+			Set<String> latlng = river.keySet();
+			Iterator itr = lat.iterator();
+			Iterator riveritr = latlng.iterator();
+			while(itr.hasNext()){
+				int id = (int) itr.next();
+				String latlng_id = farm.get(id);
+				String[] lalg = latlng_id.split(",");
+				double lattmp = Double.parseDouble(lalg[0]);
+				double lngtmp = Double.parseDouble(lalg[1]);
+				while(riveritr.hasNext()){
+					String latlngtemp = riveritr.next().toString();
+					double pollution_value  = river.get(latlngtemp);
+					String[] temp = latlngtemp.split(",");
+					double riverlat = Double.parseDouble(temp[0]);
+					double riverlng = Double.parseDouble(temp[1]);
+					
+					double distance = DistanceCalculator.getDistance(lattmp, lngtmp, riverlat, riverlng);
+					System.out.println("farm_lattmp="+lattmp+"farm_lngtmp="+lngtmp+"riverlat="+riverlat+"riverlng="+riverlng+"distance"+distance+"pollution_value="+pollution_value);
+					if(distance<5){
+						weight+=pollution_value*10;
+					}
+					else if(distance>5 && distance<100){
+						weight+=pollution_value*5;
+					}
+					else{
+						weight+=0;
+					}
+				}
+				DBConnect.insertPollutionIntoDB(id, weight);
+				weight = 0;
+			}
+			
 		}
 	
 	//read the file and convert it to string

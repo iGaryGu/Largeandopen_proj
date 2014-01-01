@@ -13,7 +13,7 @@ public class DBConnect {
 	static final String USER = "Team5";
 	static final String PASS = "2013postgres";
 
-	public static void insertFarmIntoDB(String name, double lat, double lng, String address) {
+	public static void insertFarmIntoDB(String number,String name, double lat, double lng, String address) {
 		Connection conn = null;
 		PreparedStatement insertStmt = null;
 		try{
@@ -22,13 +22,14 @@ public class DBConnect {
 			//STEP 3: Open a connection
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			//STEP 4: Execute a query
-			String sql = "insert into farm (farm_name, farm_lat, farm_lng, farm_address) values (?,?,?,?)";
+			String sql = "insert into farm (farm_number, farm_name, farm_lat, farm_lng, farm_address) values (?,?,?,?,?)";
 			
 			insertStmt = conn.prepareStatement(sql);
-			insertStmt.setString(1, name);
-			insertStmt.setDouble(2, lat);
-			insertStmt.setDouble(3, lng);
-			insertStmt.setString(4, address);
+			insertStmt.setString(1, number);
+			insertStmt.setString(2, name);
+			insertStmt.setDouble(3, lat);
+			insertStmt.setDouble(4, lng);
+			insertStmt.setString(5, address);
 			insertStmt.executeUpdate();
 			
 		}catch(SQLException se){
@@ -53,7 +54,7 @@ public class DBConnect {
 		}//end try
 	}//end function
 	
-	public static void insertRiverIntoDB(int r_id, String basin, double lat, double lng, double pollution) {
+	public static void insertRiverIntoDB(double lat, double lng, double pollution) {
 		Connection conn = null;
 		PreparedStatement insertStmt = null;
 		try{
@@ -62,14 +63,12 @@ public class DBConnect {
 			//STEP 3: Open a connection
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			//STEP 4: Execute a query
-			String sql = "insert into river (river_id, river_basin, river_lat, river_lng, river_pollution) values (?,?,?,?,?)";
+			String sql = "insert into river (river_lat, river_lng, river_pollution) values (?,?,?)";
 			
 			insertStmt = conn.prepareStatement(sql);
-			insertStmt.setInt(1, r_id);
-			insertStmt.setString(2, basin);
-			insertStmt.setDouble(3, lat);
-			insertStmt.setDouble(4, lng);
-			insertStmt.setDouble(5, pollution);
+			insertStmt.setDouble(1, lat);
+			insertStmt.setDouble(2, lng);
+			insertStmt.setDouble(3, pollution);
 			insertStmt.executeUpdate();
 			
 		}catch(SQLException se){
