@@ -76,8 +76,8 @@ public class DataParser {
 		JSONArray riverArray = new JSONArray(jsonriver);
 		
 		//ready to parse the farm and river open data
-//		parsefarm(farmArray);
-//		parseriver(riverArray);
+//		parseFarm(farmArray);
+//		parseRiver(riverArray);
 		
 		//integrate two open data to insert to pollution table
 //		farmPollution();
@@ -100,7 +100,7 @@ public class DataParser {
 	
 	//extract information from the farm.txt
 	//and save these information
-	public static void parsefarm(JSONArray farmarray) throws JSONException{
+	public static void parseFarm(JSONArray farmarray) throws JSONException{
 		List<farminfo> list = new ArrayList<farminfo>();
 		String temp = "";
 		for(int i = 0 ; i < farmarray.length();i++){
@@ -141,7 +141,7 @@ public class DataParser {
 		//itemname : pH/Suspended Solid/Dissolved Oxygen/River Pollution Index/NH3-N/Chemical Oxygen Demand/Chloride
 		//itemvalue : there are serveral data without value and some data show "<0.01" ,"<0.1"
 		
-		public static void parseriver(JSONArray riverarray) throws JSONException{
+		public static void parseRiver(JSONArray riverarray) throws JSONException{
 			List<riverinfo>list = new ArrayList<riverinfo>();
 			String rivertemp="";
 			for(int i = 0 ; i < riverarray.length();i++){
