@@ -43,6 +43,8 @@ class farminfo{
 	String city;
 	String area;
 	String address;
+	String Lat;
+	String Lng;
 }
 //used to save river information
 class riverinfo{
@@ -76,11 +78,11 @@ public class DataParser {
 		JSONArray riverArray = new JSONArray(jsonriver);
 		
 		//ready to parse the farm and river open data
-//		parseFarm(farmArray);
-//		parseRiver(riverArray);
+		parseFarm(farmArray);
+		parseRiver(riverArray);
 		
 		//integrate two open data to insert to pollution table
-//		farmPollution();
+		farmPollution();
 	}
 	
 	public static String readJsonFromUrl(String url) throws IOException, JSONException {
@@ -113,15 +115,23 @@ public class DataParser {
 			farminfo.name = object.get("Farm_name").toString();
 			farminfo.city = object.get("city").toString();
 			farminfo.area = object.get("area").toString();
-			//get address by parse the web page
-
-			farminfo.address = ParseUrl.getAddr(farm_number);
 			
 			//skip the same farm information
 			if(!temp.equals(farminfo.name)){
 				System.out.println(farminfo.name+" address: "+farminfo.address);
+				//get address by parse the web page
+				farminfo.address = ParseUrl.getAddr(farm_number);
+				// get longitude and latitude by google api
+				LatAndLng LatAndLng1 = SearchLatAndLng.getLatAndLng(farminfo.address);
+				if(LatAndLng1.Status.equals("OK")){
+					farminfo.Lat = LatAndLng1.Lat;
+					farminfo.Lng = LatAndLng1.Lng;
+				}
+				else if(LatAndLng1.Status.equals("error")){
+					farminfo.Lat = "0";
+					farminfo.Lng = "0";
+				}
 				list.add(farminfo);
-				DBConnect.insertFarmIntoDB(farm_number,farminfo.name, 1, 1, farminfo.address);
 			}
 			temp = farminfo.name;
 		}
@@ -131,7 +141,9 @@ public class DataParser {
 		Iterator<farminfo> iter = list.iterator();
 		while(iter.hasNext()){
 			farminfo info = iter.next();
-			System.out.println("name = "+info.name + "city = " + info.city + "area = "+info.area + info.address);
+			//insert the farm information to database
+			DBConnect.insertFarmIntoDB(info.number,info.name,Double.valueOf(info.Lat),Double.valueOf(info.Lng),info.address);
+			//System.out.println("number = "+info.number + "name = "+info.name + "Lat = " + info.Lat + "Lng = "+info.Lng + info.address);
 		}
 	}
 	
