@@ -118,7 +118,6 @@ public class DataParser {
 			
 			//skip the same farm information
 			if(!temp.equals(farminfo.name)){
-				System.out.println(farminfo.name+" address: "+farminfo.address);
 				//get address by parse the web page
 				farminfo.address = ParseUrl.getAddr(farm_number);
 				// get longitude and latitude by google api
@@ -131,6 +130,7 @@ public class DataParser {
 					farminfo.Lat = "0";
 					farminfo.Lng = "0";
 				}
+				System.out.println("number = "+farminfo.number + "name = "+farminfo.name + "Lat = " + farminfo.Lat + "Lng = "+farminfo.Lng + farminfo.address);
 				list.add(farminfo);
 			}
 			temp = farminfo.name;
@@ -143,7 +143,7 @@ public class DataParser {
 			farminfo info = iter.next();
 			//insert the farm information to database
 			DBConnect.insertFarmIntoDB(info.number,info.name,Double.valueOf(info.Lat),Double.valueOf(info.Lng),info.address);
-			//System.out.println("number = "+info.number + "name = "+info.name + "Lat = " + info.Lat + "Lng = "+info.Lng + info.address);
+			System.out.println("number = "+info.number + "name = "+info.name + "Lat = " + info.Lat + "Lng = "+info.Lng + info.address);
 		}
 	}
 	

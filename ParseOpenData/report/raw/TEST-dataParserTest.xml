@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="1" hostname="garygu-Aspire-4830TG" name="dataParserTest" tests="1" time="0.087" timestamp="2013-12-31T03:12:29">
+<testsuite errors="0" failures="0" hostname="damon-Aspire-5742G" name="dataParserTest" tests="1" time="0.263" timestamp="2014-01-02T08:29:04">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -12,9 +12,9 @@
     <property name="ant.home" value="/usr/share/ant" />
     <property name="jar.dir" value="build/jar" />
     <property name="java.runtime.version" value="1.7.0_25-b30" />
-    <property name="user.name" value="garygu" />
+    <property name="user.name" value="damon" />
     <property name="build.dir" value="build" />
-    <property name="user.language" value="zh" />
+    <property name="user.language" value="en" />
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/i386" />
     <property name="ant.project.default-target" value="main" />
     <property name="ant.project.name" value="ParseOpenData" />
@@ -29,11 +29,11 @@
     <property name="java.specification.name" value="Java Platform API Specification" />
     <property name="classes.dir" value="build/classes" />
     <property name="java.class.version" value="51.0" />
-    <property name="user.country" value="TW" />
+    <property name="user.country" value="US" />
     <property name="java.home" value="/usr/lib/jvm/java-7-openjdk-i386/jre" />
     <property name="java.vm.info" value="mixed mode" />
     <property name="main-class" value="DataParser" />
-    <property name="ant.file" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/build.xml" />
+    <property name="ant.file" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/build.xml" />
     <property name="os.version" value="3.8.0-34-generic" />
     <property name="path.separator" value=":" />
     <property name="java.vm.version" value="23.7-b01" />
@@ -42,14 +42,14 @@
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
     <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
-    <property name="user.home" value="/home/garygu" />
+    <property name="user.home" value="/home/damon" />
     <property name="java.specification.vendor" value="Oracle Corporation" />
     <property name="java.library.path" value="/usr/java/packages/lib/i386:/usr/lib/jni:/lib:/usr/lib" />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParserTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParserTest.xml crashfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junitvmwatcher1695938761506767020.properties propsfile=/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/junit6572754051757282428.properties" />
-    <property name="java.class.path" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/build/classes:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/postgresql-9.3-1100.jdbc41.jar:/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/postgresql.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParserTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParserTest.xml crashfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junitvmwatcher3776376337581820934.properties propsfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junit9085251696300595125.properties" />
+    <property name="java.class.path" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/build/classes:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/postgresql-9.3-1100.jdbc41.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/postgresql.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.8.2 compiled on May 18 2012" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="ant.file.type" value="file" />
@@ -62,11 +62,11 @@
     <property name="os.arch" value="i386" />
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
     <property name="java.ext.dirs" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext:/usr/java/packages/lib/ext" />
-    <property name="user.dir" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData" />
+    <property name="user.dir" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData" />
     <property name="line.separator" value="&#xa;" />
     <property name="java.vm.name" value="OpenJDK Server VM" />
-    <property name="ant.file.ParseOpenData" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/build.xml" />
-    <property name="basedir" value="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData" />
+    <property name="ant.file.ParseOpenData" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/build.xml" />
+    <property name="basedir" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData" />
     <property name="ant.java.version" value="1.7" />
     <property name="ant.core.lib" value="/usr/share/ant/lib/ant.jar" />
     <property name="file.encoding" value="UTF-8" />
@@ -75,51 +75,7 @@
     <property name="ant.project.invoked-targets" value="main" />
     <property name="lib-dir" value="lib" />
   </properties>
-  <testcase classname="dataParserTest" name="testGetAddr" time="0.02">
-    <failure message="expected:&lt;[711臺南市歸仁區七甲村丁厝街52巷63弄25號]&gt; but was:&lt;[]&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;[711臺南市歸仁區七甲村丁厝街52巷63弄25號]&gt; but was:&lt;[]&gt;
-	at dataParserTest.testGetAddr(dataParserTest.java:26)
-</failure>
-  </testcase>
+  <testcase classname="dataParserTest" name="testGetAddr" time="0.159" />
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[java.net.UnknownHostException: www.i-organic.org.tw
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.net.Socket.connect(Socket.java:579)
-	at java.net.Socket.connect(Socket.java:528)
-	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
-	at sun.net.www.http.HttpClient.openServer(HttpClient.java:378)
-	at sun.net.www.http.HttpClient.openServer(HttpClient.java:473)
-	at sun.net.www.http.HttpClient.<init>(HttpClient.java:203)
-	at sun.net.www.http.HttpClient.New(HttpClient.java:290)
-	at sun.net.www.http.HttpClient.New(HttpClient.java:306)
-	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:995)
-	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:931)
-	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:849)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1299)
-	at ParseUrl.getAddr(ParseUrl.java:20)
-	at dataParserTest.testGetAddr(dataParserTest.java:25)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:606)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:30)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
-	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:39)
-	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:518)
-	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1052)
-	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:906)
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>
