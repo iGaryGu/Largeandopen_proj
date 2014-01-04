@@ -37,7 +37,7 @@ import org.json.JSONObject;
 //import json api being used
 
 //used to save farm information
-class farminfo{
+class farmInfo{
 	String number;
 	String name;
 	String city;
@@ -45,7 +45,7 @@ class farminfo{
 	String address;
 }
 //used to save river information
-class riverinfo{
+class riverInfo{
 	String basin;
 	String longitude;
 	String latitude;
@@ -60,20 +60,19 @@ public class DataParser {
 	 * @throws IOException 
 	 * @throws JSONException 
 	 */
-	public static int riverid = 0;
 	
 	public static void main(String[] args) throws IOException, JSONException, ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 				
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=345000000G-00014 in JSON
-		String jsonfarm = readJsonFromUrl("http://data.coa.gov.tw:8080/od/data/api/eir07/?$format=json");
+		String jsonFarm = readJsonFromUrl("http://data.coa.gov.tw:8080/od/data/api/eir07/?$format=json");
 		
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=355000000I-00005 in JSON
-		String jsonriver = readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?format=json");
+		String jsonRiver = readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?format=json");
 		
 		//convert the string to JSONArray by JSONArray constructor
-		JSONArray farmArray = new JSONArray(jsonfarm); 
-		JSONArray riverArray = new JSONArray(jsonriver);
+		JSONArray farmArray = new JSONArray(jsonFarm); 
+		JSONArray riverArray = new JSONArray(jsonRiver);
 		
 		//ready to parse the farm and river open data
 //		parseFarm(farmArray);
@@ -101,36 +100,36 @@ public class DataParser {
 	//extract information from the farm.txt
 	//and save these information
 	public static void parseFarm(JSONArray farmarray) throws JSONException{
-		List<farminfo> list = new ArrayList<farminfo>();
+		List<farmInfo> list = new ArrayList<farmInfo>();
 		String temp = "";
 		for(int i = 0 ; i < farmarray.length();i++){
-			farminfo farminfo = new farminfo();
+			farmInfo farm = new farmInfo();
 			JSONObject object = farmarray.getJSONObject(i);
 			String farm_number = object.get("Number").toString();
 			//System.out.println(i +" "+farm_name+"+"+city+"+"+area+"|");
 			
-			farminfo.number = farm_number;
-			farminfo.name = object.get("Farm_name").toString();
-			farminfo.city = object.get("city").toString();
-			farminfo.area = object.get("area").toString();
+			farm.number = farm_number;
+			farm.name = object.get("Farm_name").toString();
+			farm.city = object.get("city").toString();
+			farm.area = object.get("area").toString();
 			//get address by parse the web page
 
-			farminfo.address = ParseUrl.getAddr(farm_number);
+			farm.address = ParseUrl.getAddr(farm_number);
 			
 			//skip the same farm information
-			if(!temp.equals(farminfo.name)){
-				System.out.println(farminfo.name+" address: "+farminfo.address);
-				list.add(farminfo);
-				DBConnect.insertFarmIntoDB(farm_number,farminfo.name, 1, 1, farminfo.address);
+			if(!temp.equals(farm.name)){
+				System.out.println(farm.name+" address: "+farm.address);
+				list.add(farm);
+				DBConnect.insertFarmIntoDB(farm_number,farm.name, 1, 1, farm.address);
 			}
-			temp = farminfo.name;
+			temp = farm.name;
 		}
 		
 		//get the farm information
 		//and use iterator design pattern
-		Iterator<farminfo> iter = list.iterator();
+		Iterator<farmInfo> iter = list.iterator();
 		while(iter.hasNext()){
-			farminfo info = iter.next();
+			farmInfo info = iter.next();
 			System.out.println("name = "+info.name + "city = " + info.city + "area = "+info.area + info.address);
 		}
 	}
@@ -142,23 +141,23 @@ public class DataParser {
 		//itemvalue : there are serveral data without value and some data show "<0.01" ,"<0.1"
 		
 		public static void parseRiver(JSONArray riverarray) throws JSONException{
-			List<riverinfo>list = new ArrayList<riverinfo>();
+			List<riverInfo>list = new ArrayList<riverInfo>();
 			String rivertemp="";
 			for(int i = 0 ; i < riverarray.length();i++){
-				riverinfo riverinfo = new riverinfo();
+				riverInfo river = new riverInfo();
 				JSONObject object = riverarray.getJSONObject(i);
-				riverinfo.basin = object.get("Basin").toString();
-				riverinfo.longitude = object.get("TWD97Lon").toString();
-				riverinfo.latitude = object.get("TWD97Lat").toString();
-				riverinfo.itemname = object.get("ItemEngName").toString();
-				riverinfo.itemvalue = object.get("ItemValue").toString();
-				riverinfo.itemunit =  object.get("ItemUnit").toString();
-				if(rivertemp.equals(riverinfo.basin)){
-					list.add(riverinfo);
+				river.basin = object.get("Basin").toString();
+				river.longitude = object.get("TWD97Lon").toString();
+				river.latitude = object.get("TWD97Lat").toString();
+				river.itemname = object.get("ItemEngName").toString();
+				river.itemvalue = object.get("ItemValue").toString();
+				river.itemunit =  object.get("ItemUnit").toString();
+				if(rivertemp.equals(river.basin)){
+					list.add(river);
 				}
 				else{
 					riverPollution(list);
-					rivertemp = riverinfo.basin;
+					rivertemp = river.basin;
 					list.clear();
 				}
 			}
@@ -166,13 +165,13 @@ public class DataParser {
 		}
 		
 		//get the river pollution level and insert to river table
-		public static void riverPollution(List<riverinfo>list){
+		public static void riverPollution(List<riverInfo>list){
 			Map<String,Double>map = new HashMap<String,Double>();
-			Iterator<riverinfo>iter = list.iterator();
+			Iterator<riverInfo>iter = list.iterator();
 			String lnglat = "";
 			String basin = null;
 			while(iter.hasNext()){
-				riverinfo info = iter.next();
+				riverInfo info = iter.next();
 				basin = info.basin;
 				lnglat = info.longitude+","+info.latitude;
 				if(info.itemname.equals("River Pollution Index")){
