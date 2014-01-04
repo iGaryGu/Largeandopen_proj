@@ -43,6 +43,8 @@ class farmInfo{
 	String city;
 	String area;
 	String address;
+	String Lat;
+	String Lng;
 }
 //used to save river information
 class riverInfo{
@@ -75,11 +77,11 @@ public class DataParser {
 		JSONArray riverArray = new JSONArray(jsonRiver);
 		
 		//ready to parse the farm and river open data
-//		parseFarm(farmArray);
-//		parseRiver(riverArray);
+		parseFarm(farmArray);
+		parseRiver(riverArray);
 		
 		//integrate two open data to insert to pollution table
-//		farmPollution();
+		farmPollution();
 	}
 	
 	public static String readJsonFromUrl(String url) throws IOException, JSONException {
@@ -118,9 +120,22 @@ public class DataParser {
 			
 			//skip the same farm information
 			if(!temp.equals(farm.name)){
-				System.out.println(farm.name+" address: "+farm.address);
+				//get address by parse the web page
+				farm.address = ParseUrl.getAddr(farm_number);
+				// get longitude and latitude by google api
+				LatAndLng LatAndLng1 = SearchLatAndLng.getLatAndLng(farm.address);
+				if(LatAndLng1.Status.equals("OK")){
+					farm.Lat = LatAndLng1.Lat;
+					farm.Lng = LatAndLng1.Lng;
+				}
+				else if(LatAndLng1.Status.equals("error")){
+					farm.Lat = "0";
+					farm.Lng = "0";
+				}
+			
+				System.out.println("number = "+farm.number + "name = "+farm.name + "Lat = " + farm.Lat + "Lng = "+farm.Lng + farm.address);
 				list.add(farm);
-				DBConnect.insertFarmIntoDB(farm_number,farm.name, 1, 1, farm.address);
+//				DBConnect.insertFarmIntoDB(farm_number,farm.name, 1, 1, farm.address);
 			}
 			temp = farm.name;
 		}
