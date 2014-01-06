@@ -68,21 +68,25 @@ public class DataParser {
 		// TODO Auto-generated method stub
 				
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=345000000G-00014 in JSON
-		//String jsonFarm = readJsonFromUrl("http://data.coa.gov.tw:8080/od/data/api/eir07/?$format=json");
+		String jsonFarm = readJsonFromUrl("http://data.coa.gov.tw:8080/od/data/api/eir07/?$format=json");
 		
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=355000000I-00005 in JSON
 		String jsonRiver = readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?%24orderby=SampleDate+desc&%24skip=0&%24top=100&format=json");
 		
 		//convert the string to JSONArray by JSONArray constructor
-		//JSONArray farmArray = new JSONArray(jsonFarm); 
+		JSONArray farmArray = new JSONArray(jsonFarm); 
 		JSONArray riverArray = new JSONArray(jsonRiver);
 		
 		//ready to parse the farm and river open data
-		//parseFarm(farmArray);
+		parseFarm(farmArray);
 		parseRiver(riverArray);
 		
+		// check if open data has updated and refresh the Database
+		//CheckUpdated.checkFarmUpdated();
+		//CheckUpdated.checkRiverUpdated();
+		
 		//integrate two open data to insert to pollution table
-		//farmPollution();
+		farmPollution();
 	}
 	
 	public static String readJsonFromUrl(String url) throws IOException, JSONException {
@@ -115,9 +119,6 @@ public class DataParser {
 			farm.name = object.get("Farm_name").toString();
 			farm.city = object.get("city").toString();
 			farm.area = object.get("area").toString();
-			//get address by parse the web page
-
-			farm.address = ParseUrl.getAddr(farm_number);
 			
 			//skip the same farm information
 			if(!temp.equals(farm.name)){
@@ -136,7 +137,6 @@ public class DataParser {
 			
 				System.out.println("number = "+farm.number + "name = "+farm.name + "Lat = " + farm.Lat + "Lng = "+farm.Lng + farm.address);
 				list.add(farm);
-//				DBConnect.insertFarmIntoDB(farm_number,farm.name, 1, 1, farm.address);
 			}
 			temp = farm.name;
 		}
@@ -146,6 +146,8 @@ public class DataParser {
 		Iterator<farmInfo> iter = list.iterator();
 		while(iter.hasNext()){
 			farmInfo info = iter.next();
+			//insert the farm information to database
+            DBConnect.insertFarmIntoDB(info.number,info.name,Double.valueOf(info.Lat),Double.valueOf(info.Lng),info.address);
 			System.out.println("name = "+info.name + "city = " + info.city + "area = "+info.area + info.address);
 		}
 	}

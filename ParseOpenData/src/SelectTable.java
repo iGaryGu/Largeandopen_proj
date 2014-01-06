@@ -83,4 +83,23 @@ public class SelectTable {
 		return RecentDate;
 	}
 	
+	public static String selectFarmLatestData() throws ClassNotFoundException, SQLException{
+		Connection conn = null;
+		
+		//STEP 2: Register JDBC driver
+		Class.forName(JDBC_DRIVER);
+		//STEP 3: Open a connection
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		//STEP 4: Execute a query
+		String sql = "select * from farm order by farm_id DESC limit 1";
+		PreparedStatement selectkeyword = (PreparedStatement) conn.prepareStatement(sql);
+		ResultSet farm = selectkeyword.executeQuery();
+		String LatestFarmNumber = "";
+		while(farm.next()){
+			LatestFarmNumber = farm.getString(2).toString();
+		}
+			
+		selectkeyword.close();
+		return LatestFarmNumber;
+	}
 }
