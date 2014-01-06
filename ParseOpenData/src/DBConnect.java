@@ -54,7 +54,7 @@ public class DBConnect {
 		}//end try
 	}//end function
 	
-	public static void insertRiverIntoDB(double lat, double lng, double pollution) {
+	public static void insertRiverIntoDB(double lat, double lng, double pollution, String sampleDate) {
 		Connection conn = null;
 		PreparedStatement insertStmt = null;
 		try{
@@ -69,6 +69,7 @@ public class DBConnect {
 			insertStmt.setDouble(1, lat);
 			insertStmt.setDouble(2, lng);
 			insertStmt.setDouble(3, pollution);
+			insertStmt.setDate(4, Date.valueOf(sampleDate));
 			insertStmt.executeUpdate();
 			
 		}catch(SQLException se){
