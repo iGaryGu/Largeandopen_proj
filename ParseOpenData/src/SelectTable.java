@@ -60,10 +60,27 @@ public class SelectTable {
 		}
 		
 		selectkeyword.close();
+	}
+	
+	// return the latest date updated
+	public static String selectRiverRecentDate() throws ClassNotFoundException, SQLException{
+		Connection conn = null;
 		
-		
-		
-		
+		//STEP 2: Register JDBC driver
+		Class.forName(JDBC_DRIVER);
+		//STEP 3: Open a connection
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		//STEP 4: Execute a query
+		String sql = "select  max(river_sample_date) from river ";
+		PreparedStatement selectkeyword = (PreparedStatement) conn.prepareStatement(sql);
+		ResultSet river = selectkeyword.executeQuery();
+		String RecentDate = "";
+		while(river.next()){
+			RecentDate = river.getDate(1).toString();
+		}
+			
+		selectkeyword.close();
+		return RecentDate;
 	}
 	
 }
