@@ -54,6 +54,7 @@ class riverInfo{
 	String itemname;
 	String itemvalue;
 	String itemunit;
+	String SampleDate;
 }
 public class DataParser {
 
@@ -67,21 +68,21 @@ public class DataParser {
 		// TODO Auto-generated method stub
 				
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=345000000G-00014 in JSON
-		String jsonFarm = readJsonFromUrl("http://data.coa.gov.tw:8080/od/data/api/eir07/?$format=json");
+		//String jsonFarm = readJsonFromUrl("http://data.coa.gov.tw:8080/od/data/api/eir07/?$format=json");
 		
 		// read the open data file from http://data.gov.tw/opendata/Details?sno=355000000I-00005 in JSON
-		String jsonRiver = readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?format=json");
+		String jsonRiver = readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?%24orderby=SampleDate+desc&%24skip=0&%24top=100&format=json");
 		
 		//convert the string to JSONArray by JSONArray constructor
-		JSONArray farmArray = new JSONArray(jsonFarm); 
+		//JSONArray farmArray = new JSONArray(jsonFarm); 
 		JSONArray riverArray = new JSONArray(jsonRiver);
 		
 		//ready to parse the farm and river open data
-		parseFarm(farmArray);
+		//parseFarm(farmArray);
 		parseRiver(riverArray);
 		
 		//integrate two open data to insert to pollution table
-		farmPollution();
+		//farmPollution();
 	}
 	
 	public static String readJsonFromUrl(String url) throws IOException, JSONException {
@@ -158,6 +159,8 @@ public class DataParser {
 		public static void parseRiver(JSONArray riverarray) throws JSONException{
 			List<riverInfo>list = new ArrayList<riverInfo>();
 			String rivertemp="";
+			String rivertemp2="";
+			String rivertemp3="";
 			for(int i = 0 ; i < riverarray.length();i++){
 				riverInfo river = new riverInfo();
 				JSONObject object = riverarray.getJSONObject(i);
@@ -167,12 +170,15 @@ public class DataParser {
 				river.itemname = object.get("ItemEngName").toString();
 				river.itemvalue = object.get("ItemValue").toString();
 				river.itemunit =  object.get("ItemUnit").toString();
-				if(rivertemp.equals(river.basin)){
+				river.SampleDate = object.get("SampleDate").toString();
+				if(rivertemp.equals(river.basin) && rivertemp2.equals(river.longitude) && rivertemp3.equals(river.latitude)){
 					list.add(river);
 				}
 				else{
 					riverPollution(list);
 					rivertemp = river.basin;
+					rivertemp2 = river.longitude;
+					rivertemp3 = river.latitude;
 					list.clear();
 				}
 			}
@@ -188,7 +194,7 @@ public class DataParser {
 			while(iter.hasNext()){
 				riverInfo info = iter.next();
 				basin = info.basin;
-				lnglat = info.longitude+","+info.latitude;
+				lnglat = info.longitude+","+info.latitude+","+info.SampleDate;
 				if(info.itemname.equals("River Pollution Index")){
 					map.put(lnglat,Double.parseDouble(info.itemvalue));
 				}
@@ -199,7 +205,7 @@ public class DataParser {
 				String lng = it.next().toString();
 				double level = map.get(lng);
 				String[] lngtemp = lng.split(",");
-				DBConnect.insertRiverIntoDB(Double.parseDouble(lngtemp[1]), Double.parseDouble(lngtemp[0]), level);
+				DBConnect.insertRiverIntoDB(Double.parseDouble(lngtemp[1]), Double.parseDouble(lngtemp[0]), level, lngtemp[2]);
 			}
 		}
 		

@@ -63,7 +63,7 @@ public class DBConnect {
 			//STEP 3: Open a connection
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			//STEP 4: Execute a query
-			String sql = "insert into river (river_lat, river_lng, river_pollution) values (?,?,?)";
+			String sql = "insert into river (river_lat, river_lng, river_pollution, river_sample_date) values (?,?,?,?)";
 			
 			insertStmt = conn.prepareStatement(sql);
 			insertStmt.setDouble(1, lat);
