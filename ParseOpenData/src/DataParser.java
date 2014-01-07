@@ -18,6 +18,7 @@
  * */
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -56,6 +57,15 @@ class riverInfo{
 	String itemunit;
 	String SampleDate;
 }
+
+class pollutionInfo{
+	String name;
+	Double latitude;
+	Double longitude;
+	Double pollution;
+	int level;
+}
+
 public class DataParser {
 
 	/**
@@ -89,7 +99,8 @@ public class DataParser {
 //		CheckUpdated.checkRiverUpdated();
 		
 		//integrate two open data to insert to pollution table
-		farmPollution();
+		//farmPollution();
+		writePollutionIntoFile();
 	}
 	
 	public static String readJsonFromUrl(String url) throws IOException, JSONException {
@@ -105,7 +116,7 @@ public class DataParser {
 	    } finally {
 	      is.close();
 	    }
-	  }
+	 }
 	
 	//extract information from the farm.txt
 	//and save these information
@@ -287,5 +298,27 @@ public class DataParser {
 		}
 		reader.close();
 		return  fileData.toString();	
+	}
+	
+	//write the result into file
+	public static void writePollutionIntoFile() throws ClassNotFoundException, SQLException, JSONException, IOException{
+		ArrayList<pollutionInfo> result = SelectTable.selectPollutionResult();
+		Iterator<pollutionInfo>iter = result.iterator();
+		JSONArray resultArray = new JSONArray();
+		while(iter.hasNext()){
+			pollutionInfo info = iter.next();
+			JSONObject tempObject = new JSONObject();
+			tempObject.put("name", info.name);
+			tempObject.put("latitude", info.latitude);
+			tempObject.put("longitude", info.longitude);
+			tempObject.put("pollution", info.pollution);
+			tempObject.put("level", info.level);
+			resultArray.put(tempObject);
+		}
+		//System.out.println(resultArray);
+		FileWriter file = new FileWriter("PollutionInfo.txt");
+		file.write(resultArray.toString());
+		file.flush();
+		file.close();
 	}
 }

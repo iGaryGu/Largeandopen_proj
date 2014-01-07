@@ -1,5 +1,7 @@
 
+import java.io.ObjectInputStream.GetField;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -101,5 +103,31 @@ public class SelectTable {
 			
 		selectkeyword.close();
 		return LatestFarmNumber;
+	}
+	
+	public static ArrayList<pollutionInfo> selectPollutionResult() throws ClassNotFoundException, SQLException{
+		Connection conn = null;
+		ArrayList<pollutionInfo> result = new ArrayList<pollutionInfo>();
+		//STEP 2: Register JDBC driver
+		Class.forName(JDBC_DRIVER);
+		//STEP 3: Open a connection
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		//STEP 4: Execute a query
+		String sql = "select * from farm,pollution where farm.farm_id = pollution.farm_id";
+		PreparedStatement selectkeyword = (PreparedStatement) conn.prepareStatement(sql);
+		ResultSet pollution = selectkeyword.executeQuery();
+		String LatestFarmNumber = "";
+		while(pollution.next()){
+			pollutionInfo tempInfo = new pollutionInfo();
+			tempInfo.name = pollution.getString(3);
+			tempInfo.latitude = pollution.getDouble(4);
+			tempInfo.longitude = pollution.getDouble(5);
+			tempInfo.pollution = pollution.getDouble(8);
+			tempInfo.level = pollution.getInt(9);
+			result.add(tempInfo);
+		}
+			
+		selectkeyword.close();
+		return result;
 	}
 }
