@@ -85,8 +85,8 @@ public class DataParser {
 		}*/
 
 			// check if open data has updated and refresh the Database
-		CheckUpdated.checkFarmUpdated();
-		CheckUpdated.checkRiverUpdated();
+//		CheckUpdated.checkFarmUpdated();
+//		CheckUpdated.checkRiverUpdated();
 		
 		//integrate two open data to insert to pollution table
 		farmPollution();
@@ -222,6 +222,7 @@ public class DataParser {
 			
 			//pollution weight
 			double weight = 0; 
+			int level;
 			
 			Map<Integer,String> farm = SelectTable.farmmap;
 			Map<String,Double> river = SelectTable.rivermap;
@@ -245,7 +246,7 @@ public class DataParser {
 					double riverlng = Double.parseDouble(temp[1]);
 					
 					double distance = DistanceCalculator.getDistance(lattmp, lngtmp, riverlat, riverlng);
-					System.out.println("farm_lattmp="+lattmp+"farm_lngtmp="+lngtmp+"riverlat="+riverlat+"riverlng="+riverlng+"distance"+distance+"pollution_value="+pollution_value);
+//					System.out.println("farm_lattmp="+lattmp+"farm_lngtmp="+lngtmp+"riverlat="+riverlat+"riverlng="+riverlng+"distance"+distance+"pollution_value="+pollution_value);
 					if(distance<2000){
 						weight+=pollution_value*10;
 					}
@@ -256,11 +257,21 @@ public class DataParser {
 						weight+=0;
 					}
 				}
-//				System.out.println("weight="+weight);
-				DBConnect.insertPollutionIntoDB(id, weight);
+				if(weight >= 500){
+					level = 1;
+				}else if(weight<500&&weight>400){
+					level = 2;
+				}else if(weight<400&&weight>300){
+					level = 3;
+				}else if(weight<300&&weight>200){
+					level = 4;
+				}else{
+					level = 5;
+				}
+//				System.out.println("id="+id+"weight="+weight+"level="+level);
+				DBConnect.insertPollutionIntoDB(id, weight,level);
 				weight = 0;
 			}
-			
 		}
 	
 	//read the file and convert it to string

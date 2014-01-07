@@ -94,7 +94,7 @@ public class DBConnect {
 		}//end try
 	}//end function
 	
-	public static void insertPollutionIntoDB(int f_id, double pollution) {
+	public static void insertPollutionIntoDB(int f_id, double pollution,int level) {
 		Connection conn = null;
 		PreparedStatement insertStmt = null;
 		try{
@@ -103,11 +103,12 @@ public class DBConnect {
 			//STEP 3: Open a connection
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			//STEP 4: Execute a query
-			String sql = "insert into pollution (farm_id, pollution) values (?,?)";
+			String sql = "insert into pollution (farm_id, pollution,p_level) values (?,?,?)";
 			
 			insertStmt = conn.prepareStatement(sql);
 			insertStmt.setInt(1, f_id);
 			insertStmt.setDouble(2, pollution);
+			insertStmt.setInt(3, level);
 			insertStmt.executeUpdate();
 			
 		}catch(SQLException se){
