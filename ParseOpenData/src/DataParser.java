@@ -67,23 +67,26 @@ public class DataParser {
 	public static void main(String[] args) throws IOException, JSONException, ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 				
-		// read the open data file from http://data.gov.tw/opendata/Details?sno=345000000G-00014 in JSON
-		String jsonFarm = readJsonFromUrl("http://data.coa.gov.tw:8080/od/data/api/eir07/?$format=json");
+			// read the open data file from http://data.gov.tw/opendata/Details?sno=345000000G-00014 in JSON
+		//String jsonFarm = readJsonFromUrl("http://data.coa.gov.tw:8080/od/data/api/eir07/?$format=json");
+			// convert the string to JSONArray by JSONArray constructor
+		//JSONArray farmArray = new JSONArray(jsonFarm); 
+			// parse the farm open data
+		//parseFarm(farmArray);
 		
-		// read the open data file from http://data.gov.tw/opendata/Details?sno=355000000I-00005 in JSON
-		String jsonRiver = readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?%24orderby=SampleDate+desc&%24skip=0&%24top=100&format=json");
-		
-		//convert the string to JSONArray by JSONArray constructor
-		JSONArray farmArray = new JSONArray(jsonFarm); 
-		JSONArray riverArray = new JSONArray(jsonRiver);
-		
-		//ready to parse the farm and river open data
-		parseFarm(farmArray);
-		parseRiver(riverArray);
-		
-		// check if open data has updated and refresh the Database
-		//CheckUpdated.checkFarmUpdated();
-		//CheckUpdated.checkRiverUpdated();
+		// run ten webs for 10,000 data because each web has only 1,000 data
+		/*for(int i=0;i<10;i++){
+				// read the open data file from http://data.gov.tw/opendata/Details?sno=355000000I-00005 in JSON
+			String jsonRiver = readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?%24orderby=SampleDate+desc&%24skip="+String.valueOf(i*1000)+"&%24top=1000&format=json");
+				//convert the string to JSONArray by JSONArray constructor
+			JSONArray riverArray = new JSONArray(jsonRiver);
+				//parse the river open data
+			parseRiver(riverArray);
+		}*/
+
+			// check if open data has updated and refresh the Database
+		CheckUpdated.checkFarmUpdated();
+		CheckUpdated.checkRiverUpdated();
 		
 		//integrate two open data to insert to pollution table
 		farmPollution();
