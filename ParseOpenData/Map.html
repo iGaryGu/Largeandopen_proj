@@ -14,7 +14,7 @@
 			var map;
 			function initialize() {
 				var mapOptions = {
-					center: new google.maps.LatLng(-34.397, 150.644),
+					center: new google.maps.LatLng(23.670850 ,120.982024),
 					zoom: 8,
 					mapTypeId: google.maps.MapTypeId.ROADMAP
 				};
@@ -29,8 +29,20 @@
 					position: location,
 					map: map
 				});
+				//create a info window
+				var infowindow = new google.maps.InfoWindow({
+					content:'yo' 
+				});
 
-				map.setCenter(location);
+				google.maps.event.addListener(marker, 'mouseover', function() {
+					infowindow.open(map,marker);
+				});
+
+				google.maps.event.addListener(marker, 'mouseout', function() {
+					infowindow.close();
+				});
+
+				//map.setCenter(location);
 			}
 		</script>
 	</head>
