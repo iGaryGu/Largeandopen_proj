@@ -93,13 +93,15 @@ public class DataParser {
                                 //parse the river open data
                         parseRiver(riverArray);
                 }*/
-        	boolean update = false;
+        	boolean update_farm = false;
+        	boolean update_river = false;
                         // check if open data has updated and refresh the Database
-                update = CheckUpdated.checkFarmUpdated();
-                update = CheckUpdated.checkRiverUpdated();
+                update_farm = CheckUpdated.checkFarmUpdated();
+                update_river = CheckUpdated.checkRiverUpdated();
                 
                 //integrate two open data to insert to pollution table
-                if(update == true){
+                if(update_farm == true||update_river==true){
+                	deleteTable.deletePollution();
                 	farmPollution();
                 }
                 writePollutionIntoFile();
