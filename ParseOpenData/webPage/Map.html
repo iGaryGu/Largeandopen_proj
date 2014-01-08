@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<style type="text/css">
+			html { height: 100% }
+			body { height: 100%; margin: 0; padding: 0 }
+			#map_canvas { height: 100% }
+		</style>
+		<script type="text/javascript"
+			src="http://maps.googleapis.com/maps/api/js?sensor=false">
+		</script>
+		<script type="text/javascript">
+			var map;
+			function initialize() {
+				var mapOptions = {
+					center: new google.maps.LatLng(23.670850 ,120.982024),
+					zoom: 8,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				map = new google.maps.Map(document.getElementById("map_canvas"),
+				mapOptions);
+			}
+			function placeMarker(location,farmName,level) {
+				var marker;
+				switch(level){
+					case 1:
+						marker = new google.maps.Marker({
+							position: location,
+							map: map,
+							icon:'icon/PNG/pin-red-solid-3.png'
+						});
+						break;
+					case 2:
+						marker = new google.maps.Marker({
+							position: location,
+							map: map,
+							icon:'icon/PNG/pin-magenta-solid-3.png'
+						});
+						break;
+					case 3:
+							marker = new google.maps.Marker({
+							position: location,
+							map: map,
+							icon:'icon/PNG/pin-yellow-solid-3.png'
+						});
+						break;
+					case 4:
+						marker = new google.maps.Marker({
+							position: location,
+							map: map,
+							icon:'icon/PNG/pin-green-solid-3.png'
+						});
+						break;
+					case 5:
+						marker = new google.maps.Marker({
+							position: location,
+							map: map,
+							icon:'icon/PNG/pin-blue-solid-3.png'
+						});
+						break;
+					default: alert(level); break;
+
+				}
+				//create a info window
+				var infowindow = new google.maps.InfoWindow({
+					content:farmName 
+				});
+
+				google.maps.event.addListener(marker, 'mouseover', function() {
+					infowindow.open(map,marker);
+				});
+
+				google.maps.event.addListener(marker, 'mouseout', function() {
+					infowindow.close();
+				});
+
+				//map.setCenter(location);
+			}
+			$.get('PollutionInfo.txt',function(data){
+				var jsonArray = JSON.parse(data); 
+				var i=0;
+				while(i<jsonArray.length){
+					//alert(jsonArray[i].name);
+					var jsonObj = jsonArray[i];
+					placeMarker(new google.maps.LatLng( jsonObj.latitude, jsonObj.longitude), jsonObj.name, jsonObj.level );
+					++i;
+				}
+			});
+		</script>
+	</head>
+	<body onload="initialize()">
+		<div id="map_canvas" style="width:100%; height:100%"></div>
+	</body>
+</html>

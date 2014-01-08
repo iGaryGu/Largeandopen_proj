@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="damon-Aspire-5742G" id="0" name="dataParserTest" package="" tests="1" time="0.263" timestamp="2014-01-02T08:29:04">
+  <testsuite errors="0" failures="0" hostname="damon-Aspire-5742G" id="0" name="dataParserTest" package="" tests="1" time="0.345" timestamp="2014-01-08T09:02:06">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -96,7 +96,7 @@
 
           <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParserTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParserTest.xml crashfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junitvmwatcher3776376337581820934.properties propsfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junit9085251696300595125.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParserTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParserTest.xml crashfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junitvmwatcher1427367304715290963.properties propsfile=/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/junit1672087897720283976.properties" />
 
           <property name="java.class.path" value="/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/build/classes:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/postgresql-9.3-1100.jdbc41.jar:/home/damon/Course/openSoftware/Largeandopen_proj/ParseOpenData/lib/postgresql.jar:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
 
@@ -150,7 +150,7 @@
 
       </properties>
 
-      <testcase classname="dataParserTest" name="testGetAddr" time="0.159" />
+      <testcase classname="dataParserTest" name="testGetAddr" time="0.249" />
 
       <system-out />
 
