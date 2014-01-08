@@ -8,7 +8,7 @@ import org.json.JSONObject;
 
 public class CheckUpdated {
 
-	public static void checkFarmUpdated() throws ClassNotFoundException, SQLException, IOException, JSONException{
+	public static boolean checkFarmUpdated() throws ClassNotFoundException, SQLException, IOException, JSONException{
 		// get the latest number of data inserted 
 		String latestFarmNumer = SelectTable.selectFarmLatestData();
 		String jsonFarm = DataParser.readJsonFromUrl("http://data.coa.gov.tw:8080/od/data/api/eir07/?$format=json");
@@ -18,7 +18,7 @@ public class CheckUpdated {
 		// if true means the data is already latest
 		if(latestFarm.get("Number").toString().equals(latestFarmNumer)){
 			System.out.println("Farm Data is already latest");
-			return;
+			return false;
 		}
 		else{
 			// add data not inserted yet
@@ -45,12 +45,12 @@ public class CheckUpdated {
 				}
 			}
 			System.out.println("Farm Data has finished updating");
-			return;
+			return true;
 		}
 		
 	}
 	
-	public static void checkRiverUpdated() throws IOException, JSONException, ClassNotFoundException, SQLException{
+	public static boolean checkRiverUpdated() throws IOException, JSONException, ClassNotFoundException, SQLException{
 		// get the latest Sample Date of data inserted 
 		String latestSampleDate = SelectTable.selectRiverRecentDate();
 		String jsonRiver = DataParser.readJsonFromUrl("http://opendata.epa.gov.tw/ws/Data/WQXRiver/?%24orderby=SampleDate+desc&%24skip=0&%24top=1000&format=json");
@@ -59,7 +59,7 @@ public class CheckUpdated {
 		// if true means the data is already latest
 		if(firstRiver.get("SampleDate").toString().equals(latestSampleDate)){
 			System.out.println("River Data is already latest");
-			return;
+			return false;
 		}
 		else{
 			for(int i = 0 ; i < riverArray.length();i++){
@@ -72,7 +72,7 @@ public class CheckUpdated {
 				}
 			}
 			System.out.println("Farm Data has finished updating");
-			return;
+			return true;
 		}
 	}
 
