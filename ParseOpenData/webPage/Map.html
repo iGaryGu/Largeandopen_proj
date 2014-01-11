@@ -13,6 +13,8 @@
 		</script>
 		<script type="text/javascript">
 			var map;
+//			var jsonArray = [];
+			var markerArray = [];
 			function initialize() {
 				var mapOptions = {
 					center: new google.maps.LatLng(23.670850 ,120.982024),
@@ -31,6 +33,7 @@
 							map: map,
 							icon:'icon/PNG/pin-red-solid-3.png'
 						});
+						markerArray.push(marker);
 						break;
 					case 2:
 						marker = new google.maps.Marker({
@@ -38,6 +41,7 @@
 							map: map,
 							icon:'icon/PNG/pin-magenta-solid-3.png'
 						});
+						markerArray.push(marker);
 						break;
 					case 3:
 							marker = new google.maps.Marker({
@@ -45,6 +49,7 @@
 							map: map,
 							icon:'icon/PNG/pin-yellow-solid-3.png'
 						});
+						markerArray.push(marker);
 						break;
 					case 4:
 						marker = new google.maps.Marker({
@@ -52,6 +57,7 @@
 							map: map,
 							icon:'icon/PNG/pin-green-solid-3.png'
 						});
+						markerArray.push(marker);
 						break;
 					case 5:
 						marker = new google.maps.Marker({
@@ -59,9 +65,9 @@
 							map: map,
 							icon:'icon/PNG/pin-blue-solid-3.png'
 						});
+						markerArray.push(marker);
 						break;
 					default: alert(level); break;
-
 				}
 				//create a info window
 				var infowindow = new google.maps.InfoWindow({
@@ -78,13 +84,34 @@
 
 				//map.setCenter(location);
 			}
+			function selectLevel(id){
+				var select = document.getElementById(id).value;
+				var i = 0;
+				cleanMarker();				
+				while(i<jsonArray.length){
+					var jsonObj = jsonArray[i];
+					if(select==jsonObj.level){
+						placeMarker(new google.maps.LatLng( jsonObj.latitude, jsonObj.longitude), jsonObj.name, jsonObj.level);
+					}
+					++i;
+				}
+			}
+			function cleanMarker(){
+				if(markerArray){
+					for(i in markerArray){
+						markerArray[i].setMap(null);
+					}
+				}
+
+			}
 			$.get('PollutionInfo.txt',function(data){
-				var jsonArray = JSON.parse(data); 
+				jsonArray = JSON.parse(data); 
 				var i=0;
+//				var select = document.getElementById("level").value;
 				while(i<jsonArray.length){
 					//alert(jsonArray[i].name);
 					var jsonObj = jsonArray[i];
-					placeMarker(new google.maps.LatLng( jsonObj.latitude, jsonObj.longitude), jsonObj.name, jsonObj.level );
+					placeMarker(new google.maps.LatLng( jsonObj.latitude, jsonObj.longitude), jsonObj.name, jsonObj.level);
 					++i;
 				}
 			});
@@ -92,5 +119,10 @@
 	</head>
 	<body onload="initialize()">
 		<div id="map_canvas" style="width:100%; height:100%"></div>
+		<button id="level_1" onClick="selectLevel(this.id)" value="1" style="position:absolute;top:110px;right:100px;">level 1</button>
+		<button id="level_2" onClick="selectLevel(this.id)" value="2" style="position:absolute;top:130px;right:100px;">level 2</button>
+		<button id="level_3" onClick="selectLevel(this.id)" value="3" style="position:absolute;top:150px;right:100px;">level 3</button>
+		<button id="level_4" onClick="selectLevel(this.id)" value="4" style="position:absolute;top:170px;right:100px;">level 4</button>
+		<button id="level_5" onClick="selectLevel(this.id)" value="5" style="position:absolute;top:190px;right:100px;">level 5</button>
 	</body>
 </html>
