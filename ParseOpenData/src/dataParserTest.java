@@ -7,22 +7,22 @@ import org.junit.Test;
 
 public class dataParserTest {
 	
-	ParseUrl parseurl = null; 
+//	ParseUrl parseurl = null; 
 	
 	@Before
 	public void setUp(){
-		parseurl = new ParseUrl();
+//		parseurl = new ParseUrl();
 	}
 	
 	@After
 	public void teardown(){
-		parseurl=null;
+//		parseurl=null;
 	}
 
 	@Test
 	public void testGetAddr() {
 		String str = "711臺南市歸仁區七甲村丁厝街52巷63弄25號";
-		String temp = parseurl.getAddr("COAF0001");		
+		String temp = ParseUrl.getAddr("COAF0001");		
 		assertEquals(str,temp);
 	}
 

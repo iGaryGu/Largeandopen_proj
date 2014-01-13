@@ -3,8 +3,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/json.jar"/>
-	<classpathentry kind="lib" path="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/junit.jar"/>
-	<classpathentry kind="lib" path="/home/garygu/largeandopen/Largeandopen_proj/ParseOpenData/lib/postgresql.jar"/>
+	<classpathentry kind="lib" path="/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/json.jar"/>
+	<classpathentry kind="lib" path="/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/junit.jar"/>
+	<classpathentry kind="lib" path="/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/postgresql.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
