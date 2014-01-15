@@ -31,7 +31,7 @@ public class dataParserTest {
 	@Test
 	public void testReadFile() throws IOException {
 		String str = "hello girl\n";
-		String temp = DataParser.readFileToString("test.txt");
+		String temp = DataParser.readFileToString("../test.txt");
 		System.out.println(temp);
 		assertEquals(str,temp);
 	}
