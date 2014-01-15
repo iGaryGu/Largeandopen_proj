@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="garygu-Aspire-4830TG" name="dataParserTest" tests="1" time="0.46" timestamp="2014-01-13T07:38:50">
+<testsuite errors="0" failures="0" hostname="garygu-Aspire-4830TG" name="dataParserTest" tests="1" time="0.416" timestamp="2014-01-15T13:43:04">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="sun.management.compiler" value="HotSpot Tiered Compilers" />
+    <property name="ant.file.type.ParseOpenData" value="file" />
     <property name="os.name" value="Linux" />
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/resources.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/rt.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/jsse.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/jce.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/charsets.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/netx.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/plugin.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/rhino.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/lib/jfr.jar:/usr/lib/jvm/java-7-openjdk-i386/jre/classes" />
     <property name="sun.desktop" value="gnome" />
     <property name="java.vm.specification.vendor" value="Oracle Corporation" />
-    <property name="ant.home" value="/home/garygu/cruisecontrol-bin-2.8.4/apache-ant-1.7.0" />
+    <property name="ant.home" value="/usr/share/ant" />
     <property name="jar.dir" value="build/jar" />
     <property name="java.runtime.version" value="1.7.0_25-b30" />
-    <property name="cctimestamp" value="20140113153848" />
-    <property name="label" value="build.21" />
-    <property name="cclastgoodbuildtimestamp" value="20140113152817" />
     <property name="user.name" value="garygu" />
-    <property name="projectname" value="ParseOpenData" />
     <property name="build.dir" value="build" />
     <property name="user.language" value="zh" />
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/i386" />
-    <property name="buildforced" value="false" />
+    <property name="ant.project.default-target" value="main" />
     <property name="ant.project.name" value="ParseOpenData" />
     <property name="java.version" value="1.7.0_25" />
     <property name="user.timezone" value="" />
-    <property name="lastbuildsuccessful" value="true" />
-    <property name="cclastbuildtimestamp" value="20140113152817" />
     <property name="sun.arch.data.model" value="32" />
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/endorsed" />
     <property name="sun.cpu.isalist" value="" />
@@ -43,7 +38,7 @@
     <property name="path.separator" value=":" />
     <property name="java.vm.version" value="23.7-b01" />
     <property name="report.dir" value="report" />
-    <property name="ant.library.dir" value="/home/garygu/cruisecontrol-bin-2.8.4/apache-ant-1.7.0/lib" />
+    <property name="ant.library.dir" value="/usr/share/ant/lib" />
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
     <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
@@ -53,35 +48,34 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParserTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParserTest.xml crashfile=/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/junitvmwatcher770807137.properties propsfile=/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/junit482166022.properties" />
-    <property name="java.class.path" value="/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/build/classes:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/postgresql-9.3-1100.jdbc41.jar:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/postgresql.jar:/usr/lib/jvm/java-7-openjdk-i386:/usr/share/java/mysql.jar:/home/garygu/cruisecontrol-bin-2.8.4/apache-ant-1.7.0/lib/junit-4.4.jar:/home/garygu/cruisecontrol-bin-2.8.4/apache-ant-1.7.0/lib/ant-launcher.jar:/home/garygu/cruisecontrol-bin-2.8.4/apache-ant-1.7.0/lib/ant.jar:/home/garygu/cruisecontrol-bin-2.8.4/apache-ant-1.7.0/lib/ant-junit.jar" />
-    <property name="ant.version" value="Apache Ant version 1.7.0 compiled on December 13 2006" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dataParserTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/report/raw/TEST-dataParserTest.xml crashfile=/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/junitvmwatcher3193104163503809989.properties propsfile=/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/junit6471064113189071588.properties" />
+    <property name="java.class.path" value="/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/build/classes:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/json.jar:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/junit.jar:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/mysql.jar:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/org.hamcrest.core_1.1.0.jar:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/postgresql-9.3-1100.jdbc41.jar:/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/lib/postgresql.jar:/usr/lib/jvm/java-7-openjdk-i386:/usr/share/java/mysql.jar:/usr/share/ant/lib/junit.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.8.2 compiled on May 18 2012" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.type" value="file" />
     <property name="java.vm.specification.version" value="1.7" />
     <property name="sun.cpu.endian" value="little" />
     <property name="sun.os.patch.level" value="unknown" />
     <property name="java.io.tmpdir" value="/tmp" />
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
-    <property name="XmlLogger.file" value="log.xml" />
     <property name="raw.dir" value="report/raw" />
     <property name="os.arch" value="i386" />
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
     <property name="java.ext.dirs" value="/usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext:/usr/java/packages/lib/ext" />
-    <property name="cvstimestamp" value="2014-01-13 07:38:48 GMT" />
-    <property name="user.dir" value="/home/garygu/cruisecontrol-bin-2.8.4" />
-    <property name="line.separator" value="
-" />
+    <property name="user.dir" value="/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData" />
+    <property name="line.separator" value="&#xa;" />
     <property name="java.vm.name" value="OpenJDK Server VM" />
     <property name="ant.file.ParseOpenData" value="/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData/build.xml" />
     <property name="basedir" value="/home/garygu/cruisecontrol-bin-2.8.4/projects/Largeandopen_proj/ParseOpenData" />
-    <property name="ant.java.version" value="1.6" />
-    <property name="ant.core.lib" value="/home/garygu/cruisecontrol-bin-2.8.4/apache-ant-1.7.0/lib/ant.jar" />
+    <property name="ant.java.version" value="1.7" />
+    <property name="ant.core.lib" value="/usr/share/ant/lib/ant.jar" />
     <property name="file.encoding" value="UTF-8" />
     <property name="java.specification.version" value="1.7" />
     <property name="src.dir" value="src" />
+    <property name="ant.project.invoked-targets" value="main" />
     <property name="lib-dir" value="lib" />
   </properties>
-  <testcase classname="dataParserTest" name="testGetAddr" time="0.387" />
+  <testcase classname="dataParserTest" name="testGetAddr" time="0.333" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -9,15 +9,15 @@ public class dataParserTest {
 	
 //	ParseUrl parseurl = null; 
 	
-	@Before
-	public void setUp(){
-//		parseurl = new ParseUrl();
-	}
-	
-	@After
-	public void teardown(){
-//		parseurl=null;
-	}
+//	@Before
+//	public void setUp(){
+////		parseurl = new ParseUrl();
+//	}
+//	
+//	@After
+//	public void teardown(){
+////		parseurl=null;
+//	}
 
 	@Test
 	public void testGetAddr() {
