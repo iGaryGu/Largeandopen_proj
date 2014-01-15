@@ -43,7 +43,7 @@
 		<junit printsummary="yes" haltonfailure="no" showoutput="no" >
 			<classpath>
 				<path refid="classpath"/>
-				<path location="${jar-dir}/${ant.project.name}.jar"/>
+				<!--				<path location="${jar-dir}/${ant.project.name}.jar"/>-->
 			</classpath>
 			<batchtest fork="yes" todir="${report.dir}/raw">
 				<formatter type="xml"/>
