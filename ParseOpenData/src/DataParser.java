@@ -105,6 +105,7 @@ public class DataParser {
                 	farmPollution();
                 }
                 writePollutionIntoFile();
+				System.out.println("all end");
                 
         }
         
